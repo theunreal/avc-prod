@@ -749,7 +749,7 @@ DevicesRoutingModule = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return API_URL; });
-var API_URL = 'http://localhost:4200/assets/data/';
+var API_URL = 'assets/data/';
 //# sourceMappingURL=API_CONFIG.js.map
 
 /***/ })
