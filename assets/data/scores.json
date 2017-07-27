@@ -1,0 +1,27 @@
+{
+  "sjc23-noca-appx-gw1": {
+    "firstPktsClassificationRatio": 8.0,
+    "sdAvcPktsClassificationImprovment": 6.8,
+    "sdAvcCoverageRatio": 7.5,
+    "sdAvcClassificationImprovement": 3.1,
+    "totalFlows": 278789,
+    "flowsPerSeconds": 929.3
+  },
+  "sjc23-noca-appx-gw2": {
+    "firstPktsClassificationRatio": 8.0,
+    "sdAvcPktsClassificationImprovment": 4.9,
+    "sdAvcCoverageRatio": 7.5,
+    "sdAvcClassificationImprovement": 2.5,
+    "totalFlows": 259537,
+    "flowsPerSeconds": 865.1
+  },
+  "summary": {
+	  "firstPktsClassificationRatio": 8.0,
+	  "sdAvcPktsClassificationImprovment": 5.8,
+	  "sdAvcCoverageRatio": 7.5,
+	  "sdAvcClassificationImprovement": 2.8,
+	  "totalFlows": 538326,
+	  "windowSize": 300,
+	  "flowsPerSeconds": 1794.4
+  }
+}

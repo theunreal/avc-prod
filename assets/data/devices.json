@@ -1,0 +1,463 @@
+[{
+	"name": "cisco",
+	"devices":
+  	[{
+  	"data": {
+  		"deviceId": "sjc23-noca-appx-gw1",
+    	"deviceIp": "10.35.16.20",
+    	"ignoreDevice": false
+  	},
+  	"controller": {
+	  	"controllerAddress": "10.56.196.226",
+	    "activeControllerAddress": "10.56.196.226",
+	    "primaryControllerAddress": "10.56.196.226",
+	    "secondaryControllerAddress": "10.56.196.153"
+  	},
+  	"scores": {
+  		"firstPktsClassificationRatio": 8.0,
+	    "sdAvcPktsClassificationImprovment": 6.8,
+	    "sdAvcCoverageRatio": 7.5,
+	    "sdAvcClassificationImprovement": 3.1,
+	    "totalFlows": 278789,
+	    "flowsPerSeconds": 929.3
+  	},
+    "package": {
+  		"currentLoadedPack": "pp_update_201707230931.pack",
+	    "packRuleCandidate": "pp_update_201707230931.pack",
+	    "packRuleCandidateTs": 1500802267000,
+	    "currentLoadedProtocolPack": "pp32_166_230717_1040",
+	    "defaultPackVersion": 31,
+	    "activePackVersion": 31,
+	    "protocolPackLastUpdatedPack": null,
+	    "protocolPackLastUpdateStartTs": null,
+	    "protocolPackLastUpdateEndTs": null,
+	    "ppUpdateStatus": "No pending job",
+	    "ppUpdateStartTs": null,
+	    "ppUpdateEta": null,
+	    "lastPpUpdateStatus": "No job history",
+	    "protocolPackCandidate": "BuiltIn"
+  	},
+  	"flows": {
+  		"fifClassified": 187908,
+	    "sdavcFifClassified": 157925,
+	    "sdavcEarlyClassified": 177259,
+	    "sdavcClassified": 22583,
+	    "finalClassified": 147309,
+	    "totalUdp": 106905,
+	    "totalTcpOpened": 128000,
+	    "totalUdpOpened": 108027,
+	    "totalTcp": 80283,
+	    "totalDns": 0,
+	    "totalAsymTcp": 22636,
+	    "totalAsymUdp": 18045,
+	    "totalAsymDns": 0
+  	},
+    "config": {
+    	"version": 1,
+    	"import": {
+    		"enabled": true,
+    		"intervalSec": 300,
+    		"timeoutRollback": true
+    	},
+    	"export": {
+    		"enabled": true,
+    		"socketCacheIntervalSec": 900,
+    		"l3CacheIntervalSec": 900,
+    		"protocolDiscoveryIntervalSec": 300,
+    		"deviceInfoIntervalSec": 60,
+    		"asymSocketsIntervalSec": 900,
+    		"socketCacheMaxEntriesToExport": 20000,
+    		"l3CacheMaxEntriesToExport": 30000,
+    		"asymSocketsMaxEntriesToExport": 900,
+    		"socketCacheProtocolsToFilter": {
+    			"http": true,
+    			"ssl": true,
+    			"snmp": true,
+    			"ntp": true,
+    			"https": true,
+    			"statistical-conf-audio": true
+    		}
+    	}
+    },
+    "lastSwitchoverTs": null,
+    "lastStatusTs": 1500802649000,
+    "lastAutoUpdateTs": 1500802471000,
+    "lastAutoUpdateRulePackTs": 1500802471000,
+    "lastPdTs": 1500802621000,
+    "lastPdBytes": 3807108910,
+    "lastCacheUpdate": null,
+    "ftpLoginSuccess": 1124,
+    "score": 96,
+    "engineVersion": 30,
+    "asymmetricScore": 28,
+    "connected": true
+  },
+  {
+  	"data": {
+  		"deviceId": "sjc23-noca-appx-gw1",
+    	"deviceIp": "10.35.16.20",
+    	"ignoreDevice": false
+  	},
+  	"controller": {
+	  	"controllerAddress": "10.56.196.226",
+	    "activeControllerAddress": "10.56.196.226",
+	    "primaryControllerAddress": "10.56.196.226",
+	    "secondaryControllerAddress": "10.56.196.153"
+  	},
+    "package": {
+  		"currentLoadedPack": "pp_update_201707230931.pack",
+	    "packRuleCandidate": "pp_update_201707230931.pack",
+	    "packRuleCandidateTs": 1500802267000,
+	    "currentLoadedProtocolPack": "pp32_166_230717_1040",
+	    "defaultPackVersion": 31,
+	    "activePackVersion": 31,
+	    "protocolPackLastUpdatedPack": null,
+	    "protocolPackLastUpdateStartTs": null,
+	    "protocolPackLastUpdateEndTs": null,
+	    "ppUpdateStatus": "No pending job",
+	    "ppUpdateStartTs": null,
+	    "ppUpdateEta": null,
+	    "lastPpUpdateStatus": "No job history",
+	    "protocolPackCandidate": "BuiltIn"
+  	},
+  	"scores": {
+  		"firstPktsClassificationRatio": 8.0,
+	    "sdAvcPktsClassificationImprovment": 6.8,
+	    "sdAvcCoverageRatio": 7.5,
+	    "sdAvcClassificationImprovement": 3.1,
+	    "totalFlows": 278789,
+	    "flowsPerSeconds": 929.3
+  	},
+  	"flows": {
+  		"fifClassified": 187908,
+	    "sdavcFifClassified": 157925,
+	    "sdavcEarlyClassified": 177259,
+	    "sdavcClassified": 22583,
+	    "finalClassified": 147309,
+	    "totalUdp": 106905,
+	    "totalTcpOpened": 128000,
+	    "totalUdpOpened": 108027,
+	    "totalTcp": 80283,
+	    "totalDns": 0,
+	    "totalAsymTcp": 22636,
+	    "totalAsymUdp": 18045,
+	    "totalAsymDns": 0
+  	},
+    "config": {
+    	"version": 1,
+    	"import": {
+    		"enabled": true,
+    		"intervalSec": 300,
+    		"timeoutRollback": true
+    	},
+    	"export": {
+    		"enabled": true,
+    		"socketCacheIntervalSec": 900,
+    		"l3CacheIntervalSec": 900,
+    		"protocolDiscoveryIntervalSec": 300,
+    		"deviceInfoIntervalSec": 60,
+    		"asymSocketsIntervalSec": 900,
+    		"socketCacheMaxEntriesToExport": 20000,
+    		"l3CacheMaxEntriesToExport": 30000,
+    		"asymSocketsMaxEntriesToExport": 900,
+    		"socketCacheProtocolsToFilter": {
+    			"http": true,
+    			"ssl": true,
+    			"snmp": true,
+    			"ntp": true,
+    			"https": true,
+    			"statistical-conf-audio": true
+    		}
+    	}
+    },
+    "lastSwitchoverTs": null,
+    "lastStatusTs": 1500802649000,
+    "lastAutoUpdateTs": 1500802471000,
+    "lastAutoUpdateRulePackTs": 1500802471000,
+    "lastPdTs": 1500802621000,
+    "lastPdBytes": 3807108910,
+    "lastCacheUpdate": null,
+    "ftpLoginSuccess": 1124,
+    "score": 96,
+    "engineVersion": 30,
+    "asymmetricScore": 28
+  },
+  {
+  	"data": {
+  		"deviceId": "sjc23-noca-appx-gw1",
+    	"deviceIp": "10.35.16.20",
+    	"ignoreDevice": false
+  	},
+  	"controller": {
+	  	"controllerAddress": "10.56.196.226",
+	    "activeControllerAddress": "10.56.196.226",
+	    "primaryControllerAddress": "10.56.196.226",
+	    "secondaryControllerAddress": "10.56.196.153"
+  	},
+  	"scores": {
+  		"firstPktsClassificationRatio": 8.0,
+	    "sdAvcPktsClassificationImprovment": 6.8,
+	    "sdAvcCoverageRatio": 7.5,
+	    "sdAvcClassificationImprovement": 3.1,
+	    "totalFlows": 278789,
+	    "flowsPerSeconds": 929.3
+  	},
+    "package": {
+  		"currentLoadedPack": "pp_update_201707230931.pack",
+	    "packRuleCandidate": "pp_update_201707230931.pack",
+	    "packRuleCandidateTs": 1500802267000,
+	    "currentLoadedProtocolPack": "pp32_166_230717_1040",
+	    "defaultPackVersion": 31,
+	    "activePackVersion": 31,
+	    "protocolPackLastUpdatedPack": null,
+	    "protocolPackLastUpdateStartTs": null,
+	    "protocolPackLastUpdateEndTs": null,
+	    "ppUpdateStatus": "No pending job",
+	    "ppUpdateStartTs": null,
+	    "ppUpdateEta": null,
+	    "lastPpUpdateStatus": "No job history",
+	    "protocolPackCandidate": "BuiltIn"
+  	},
+  	"flows": {
+  		"fifClassified": 187908,
+	    "sdavcFifClassified": 157925,
+	    "sdavcEarlyClassified": 177259,
+	    "sdavcClassified": 22583,
+	    "finalClassified": 147309,
+	    "totalUdp": 106905,
+	    "totalTcpOpened": 128000,
+	    "totalUdpOpened": 108027,
+	    "totalTcp": 80283,
+	    "totalDns": 0,
+	    "totalAsymTcp": 22636,
+	    "totalAsymUdp": 18045,
+	    "totalAsymDns": 0
+  	},
+    "config": {
+    	"version": 1,
+    	"import": {
+    		"enabled": true,
+    		"intervalSec": 300,
+    		"timeoutRollback": true
+    	},
+    	"export": {
+    		"enabled": true,
+    		"socketCacheIntervalSec": 900,
+    		"l3CacheIntervalSec": 900,
+    		"protocolDiscoveryIntervalSec": 300,
+    		"deviceInfoIntervalSec": 60,
+    		"asymSocketsIntervalSec": 900,
+    		"socketCacheMaxEntriesToExport": 20000,
+    		"l3CacheMaxEntriesToExport": 30000,
+    		"asymSocketsMaxEntriesToExport": 900,
+    		"socketCacheProtocolsToFilter": {
+    			"http": true,
+    			"ssl": true,
+    			"snmp": true,
+    			"ntp": true,
+    			"https": true,
+    			"statistical-conf-audio": true
+    		}
+    	}
+    },
+    "lastSwitchoverTs": null,
+    "lastStatusTs": 1500802649000,
+    "lastAutoUpdateTs": 1500802471000,
+    "lastAutoUpdateRulePackTs": 1500802471000,
+    "lastPdTs": 1500802621000,
+    "lastPdBytes": 3807108910,
+    "lastCacheUpdate": null,
+    "ftpLoginSuccess": 1124,
+    "score": 96,
+    "engineVersion": 30,
+    "asymmetricScore": 28,
+    "connected": true
+  }]
+ },
+ {
+	"name": "mongo",
+	"devices":
+  	[{
+  	"data": {
+  		"deviceId": "sjc23-noca-appx-gw1",
+    	"deviceIp": "10.35.16.20",
+    	"ignoreDevice": false
+  	},
+  	"controller": {
+	  	"controllerAddress": "10.56.196.226",
+	    "activeControllerAddress": "10.56.196.226",
+	    "primaryControllerAddress": "10.56.196.226",
+	    "secondaryControllerAddress": "10.56.196.153"
+  	},
+  	"scores": {
+  		"firstPktsClassificationRatio": 8.0,
+	    "sdAvcPktsClassificationImprovment": 6.8,
+	    "sdAvcCoverageRatio": 7.5,
+	    "sdAvcClassificationImprovement": 3.1,
+	    "totalFlows": 278789,
+	    "flowsPerSeconds": 929.3
+  	},
+    "package": {
+  		"currentLoadedPack": "pp_update_201707230931.pack",
+	    "packRuleCandidate": "pp_update_201707230931.pack",
+	    "packRuleCandidateTs": 1500802267000,
+	    "currentLoadedProtocolPack": "pp32_166_230717_1040",
+	    "defaultPackVersion": 31,
+	    "activePackVersion": 31,
+	    "protocolPackLastUpdatedPack": null,
+	    "protocolPackLastUpdateStartTs": null,
+	    "protocolPackLastUpdateEndTs": null,
+	    "ppUpdateStatus": "No pending job",
+	    "ppUpdateStartTs": null,
+	    "ppUpdateEta": null,
+	    "lastPpUpdateStatus": "No job history",
+	    "protocolPackCandidate": "BuiltIn"
+  	},
+  	"flows": {
+  		"fifClassified": 187908,
+	    "sdavcFifClassified": 157925,
+	    "sdavcEarlyClassified": 177259,
+	    "sdavcClassified": 22583,
+	    "finalClassified": 147309,
+	    "totalUdp": 106905,
+	    "totalTcpOpened": 128000,
+	    "totalUdpOpened": 108027,
+	    "totalTcp": 80283,
+	    "totalDns": 0,
+	    "totalAsymTcp": 22636,
+	    "totalAsymUdp": 18045,
+	    "totalAsymDns": 0
+  	},
+    "config": {
+    	"version": 1,
+    	"import": {
+    		"enabled": true,
+    		"intervalSec": 300,
+    		"timeoutRollback": true
+    	},
+    	"export": {
+    		"enabled": true,
+    		"socketCacheIntervalSec": 900,
+    		"l3CacheIntervalSec": 900,
+    		"protocolDiscoveryIntervalSec": 300,
+    		"deviceInfoIntervalSec": 60,
+    		"asymSocketsIntervalSec": 900,
+    		"socketCacheMaxEntriesToExport": 20000,
+    		"l3CacheMaxEntriesToExport": 30000,
+    		"asymSocketsMaxEntriesToExport": 900,
+    		"socketCacheProtocolsToFilter": {
+    			"http": true,
+    			"ssl": true,
+    			"snmp": true,
+    			"ntp": true,
+    			"https": true,
+    			"statistical-conf-audio": true
+    		}
+    	}
+    },
+    "lastSwitchoverTs": null,
+    "lastStatusTs": 1500802649000,
+    "lastAutoUpdateTs": 1500802471000,
+    "lastAutoUpdateRulePackTs": 1500802471000,
+    "lastPdTs": 1500802621000,
+    "lastPdBytes": 3807108910,
+    "lastCacheUpdate": null,
+    "ftpLoginSuccess": 1124,
+    "score": 96,
+    "engineVersion": 30,
+    "asymmetricScore": 28,
+    "connected": true
+  },
+  {
+  	"data": {
+  		"deviceId": "sjc23-noca-appx-gw1",
+    	"deviceIp": "10.35.16.20",
+    	"ignoreDevice": false
+  	},
+  	"controller": {
+	  	"controllerAddress": "10.56.196.226",
+	    "activeControllerAddress": "10.56.196.226",
+	    "primaryControllerAddress": "10.56.196.226",
+	    "secondaryControllerAddress": "10.56.196.153"
+  	},
+  	"scores": {
+  		"firstPktsClassificationRatio": 8.0,
+	    "sdAvcPktsClassificationImprovment": 6.8,
+	    "sdAvcCoverageRatio": 7.5,
+	    "sdAvcClassificationImprovement": 3.1,
+	    "totalFlows": 278789,
+	    "flowsPerSeconds": 929.3
+  	},
+    "package": {
+  		"currentLoadedPack": "pp_update_201707230931.pack",
+	    "packRuleCandidate": "pp_update_201707230931.pack",
+	    "packRuleCandidateTs": 1500802267000,
+	    "currentLoadedProtocolPack": "pp32_166_230717_1040",
+	    "defaultPackVersion": 31,
+	    "activePackVersion": 31,
+	    "protocolPackLastUpdatedPack": null,
+	    "protocolPackLastUpdateStartTs": null,
+	    "protocolPackLastUpdateEndTs": null,
+	    "ppUpdateStatus": "No pending job",
+	    "ppUpdateStartTs": null,
+	    "ppUpdateEta": null,
+	    "lastPpUpdateStatus": "No job history",
+	    "protocolPackCandidate": "BuiltIn"
+  	},
+  	"flows": {
+  		"fifClassified": 187908,
+	    "sdavcFifClassified": 157925,
+	    "sdavcEarlyClassified": 177259,
+	    "sdavcClassified": 22583,
+	    "finalClassified": 147309,
+	    "totalUdp": 106905,
+	    "totalTcpOpened": 128000,
+	    "totalUdpOpened": 108027,
+	    "totalTcp": 80283,
+	    "totalDns": 0,
+	    "totalAsymTcp": 22636,
+	    "totalAsymUdp": 18045,
+	    "totalAsymDns": 0
+  	},
+    "config": {
+    	"version": 1,
+    	"import": {
+    		"enabled": true,
+    		"intervalSec": 300,
+    		"timeoutRollback": true
+    	},
+    	"export": {
+    		"enabled": true,
+    		"socketCacheIntervalSec": 900,
+    		"l3CacheIntervalSec": 900,
+    		"protocolDiscoveryIntervalSec": 300,
+    		"deviceInfoIntervalSec": 60,
+    		"asymSocketsIntervalSec": 900,
+    		"socketCacheMaxEntriesToExport": 20000,
+    		"l3CacheMaxEntriesToExport": 30000,
+    		"asymSocketsMaxEntriesToExport": 900,
+    		"socketCacheProtocolsToFilter": {
+    			"http": true,
+    			"ssl": true,
+    			"snmp": true,
+    			"ntp": true,
+    			"https": true,
+    			"statistical-conf-audio": true
+    		}
+    	}
+    },
+    "lastSwitchoverTs": null,
+    "lastStatusTs": 1500802649000,
+    "lastAutoUpdateTs": 1500802471000,
+    "lastAutoUpdateRulePackTs": 1500802471000,
+    "lastPdTs": 1500802621000,
+    "lastPdBytes": 3807108910,
+    "lastCacheUpdate": null,
+    "ftpLoginSuccess": 1124,
+    "score": 96,
+    "engineVersion": 30,
+    "asymmetricScore": 28,
+    "connected": true
+  }]
+ }
+ ]
