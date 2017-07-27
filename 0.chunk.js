@@ -9,6 +9,7 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__application_application_component__ = __webpack_require__("../../../../../src/app/admin/shared/application/application.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminSharedModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16,6 +17,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -31,17 +33,83 @@ AdminSharedModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["RouterModule"]
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["RouterModule"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdListModule */]
         ],
-        declarations: [],
+        declarations: [__WEBPACK_IMPORTED_MODULE_5__application_application_component__["a" /* ApplicationComponent */]],
         providers: [],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["RouterModule"],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdToolbarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MdButtonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdTabsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MdCardModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MdListModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MdIconModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["l" /* MdSelectModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdInputModule */]]
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdToolbarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MdButtonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MdTabsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MdCardModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdListModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["l" /* MdSelectModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdInputModule */], __WEBPACK_IMPORTED_MODULE_5__application_application_component__["a" /* ApplicationComponent */]]
     })
 ], AdminSharedModule);
 
 //# sourceMappingURL=admin-shared.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/shared/application/application.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<md-list-item>\n\t<img src=\"assets/images/apps/{{app.image}}\" md-list-avatar/> \n\t<h4 md-line>{{app.name}}</h4>\n\t<p md-line>{{app.bandwidth}} GB</p>\n</md-list-item>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/shared/application/application.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/shared/application/application.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplicationComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ApplicationComponent = (function () {
+    function ApplicationComponent() {
+    }
+    ApplicationComponent.prototype.ngOnInit = function () {
+    };
+    return ApplicationComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('app'),
+    __metadata("design:type", Object)
+], ApplicationComponent.prototype, "app", void 0);
+ApplicationComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'application',
+        template: __webpack_require__("../../../../../src/app/admin/shared/application/application.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/shared/application/application.component.scss")]
+    }),
+    __metadata("design:paramtypes", [])
+], ApplicationComponent);
+
+//# sourceMappingURL=application.component.js.map
 
 /***/ }),
 

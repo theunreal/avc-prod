@@ -56,7 +56,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".fullHeight {\n  height: 91%; }\n\nmd-toolbar {\n  box-shadow: 4px 4px 29px -9px rgba(0, 0, 0, 0.61);\n  position: relative;\n  z-index: 1;\n  height: 50px !important;\n  min-height: 50px !important; }\n  md-toolbar span {\n    height: 100%;\n    margin-top: 20px; }\n  md-toolbar button {\n    margin-bottom: 10px; }\n\nsection button {\n  max-width: 50px; }\n", ""]);
+exports.push([module.i, ".fullHeight {\n  height: 92%;\n  min-height: 92%; }\n\nmd-toolbar {\n  box-shadow: 4px 4px 29px -9px rgba(0, 0, 0, 0.61);\n  position: relative;\n  z-index: 1;\n  height: 50px !important;\n  min-height: 50px !important; }\n  md-toolbar span {\n    height: 100%;\n    margin-top: 20px; }\n  md-toolbar button {\n    margin-bottom: 10px; }\n\nsection button {\n  max-width: 50px; }\n", ""]);
 
 // exports
 
@@ -398,7 +398,7 @@ var CoreModule = (function () {
 }());
 CoreModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_6__angular_material__["o" /* MdSnackBarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */]],
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_6__angular_material__["p" /* MdSnackBarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */]],
         declarations: [],
         exports: [],
         providers: [__WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4__auth_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_5__toast_service__["a" /* ToastService */]]
@@ -445,7 +445,7 @@ var ToastService = (function () {
 }());
 ToastService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MdSnackBar */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["q" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["q" /* MdSnackBar */]) === "function" && _a || Object])
 ], ToastService);
 
 var _a;
@@ -456,7 +456,7 @@ var _a;
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"barsBg\">\n<div class=\"mat-body-1 mt-5 enter-down-bounce\">\n<section class=\"text-center\">\n\t<img src=\"assets/images/cisco_logo.png\" height=\"170\"/>\n</section>\n\n  <section class=\"login-container mt-5\">\n    <md-progress-bar mode=\"indeterminate\"\n                     color=\"warn\"\n                     *ngIf=\"loading\"></md-progress-bar>\n    <form>\n      <md-card>\n        <md-card-content>\n            <md-input-container *ngIf=\"step === 1\">\n              <input mdInput type=\"email\"\n                     name=\"email\" [(ngModel)]=\"email\"\n                     placeholder=\"Email\" value=\"\">\n            </md-input-container>\n\n            <section *ngIf=\"step === 2\" [@stepIn]>\n              <h4>Welcome <br/>\n              <small>{{email}}</small></h4>\n              <md-input-container >\n                <input mdInput type=\"password\"\n                       name=\"password\" [(ngModel)]=\"password\"\n                       placeholder=\"Password\" value=\"\">\n              </md-input-container>\n            </section>\n        </md-card-content>\n        <md-card-actions align=\"right\">\n          <button md-raised-button color=\"primary\"\n                  type=\"submit\"\n                  *ngIf=\"step === 1\" (click)=\"checkUsername()\">Continue</button>\n          <button md-raised-button color=\"primary\"\n                  type=\"submit\"\n                  (click)=\"login()\" *ngIf=\"step === 2\" [@stepIn]>Login</button>\n        </md-card-actions>\n      </md-card>\n    </form>\n  </section>\n</div>\n</div>\n"
+module.exports = "<div class=\"mat-body-1 mt-5 enter-down-bounce\">\n\t<section class=\"text-center\">\n\t\t<img src=\"assets/images/cisco_logo.png\" height=\"170\"/>\n\t</section>\n\t\n\t  <section class=\"login-container mt-5\">\n\t    <md-progress-bar mode=\"indeterminate\"\n\t                     color=\"warn\"\n\t                     *ngIf=\"loading\"></md-progress-bar>\n\t    <form>\n\t      <md-card>\n\t        <md-card-content>\n\t            <md-input-container *ngIf=\"step === 1\">\n\t              <input mdInput type=\"email\"\n\t                     name=\"email\" [(ngModel)]=\"email\"\n\t                     placeholder=\"Email\" value=\"\">\n\t            </md-input-container>\n\t\n\t            <section *ngIf=\"step === 2\" [@stepIn]>\n\t              <h4>Welcome <br/>\n\t              <small>{{email}}</small></h4>\n\t              <md-input-container >\n\t                <input mdInput type=\"password\"\n\t                       name=\"password\" [(ngModel)]=\"password\"\n\t                       placeholder=\"Password\" value=\"\">\n\t              </md-input-container>\n\t            </section>\n\t        </md-card-content>\n\t        <md-card-actions align=\"right\">\n\t          <button md-raised-button color=\"primary\"\n\t                  type=\"submit\"\n\t                  *ngIf=\"step === 1\" (click)=\"checkUsername()\">Continue</button>\n\t          <button md-raised-button color=\"primary\"\n\t                  type=\"submit\"\n\t                  (click)=\"login()\" *ngIf=\"step === 2\" [@stepIn]>Login</button>\n\t        </md-card-actions>\n\t      </md-card>\n\t    </form>\n\t  </section>\n</div>\n"
 
 /***/ }),
 
@@ -468,7 +468,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".login-container {\n  margin: 0 auto;\n  width: 400px; }\n\nmd-progress-bar {\n  margin-bottom: -2px; }\n\nmd-input-container {\n  width: 100%; }\n\n.enter-down-bounce {\n  opacity: 1 !important;\n  visibility: visible !important;\n  -webkit-animation: enterDownBounce 1s linear;\n  animation: enterDownBounce 1s linear; }\n\n@-webkit-keyframes enterDownBounce {\n  0% {\n    -webkit-transform: translateY(-220px);\n    opacity: 0; }\n  50% {\n    -webkit-transform: translateY(0px); }\n  70% {\n    -webkit-transform: translateY(-20px); }\n  100% {\n    -webkit-transform: translateY(0);\n    opacity: 1; } }\n\n@-webkit-keyframes enterDownBounce {\n  0% {\n    -webkit-transform: translateY(-220px);\n            transform: translateY(-220px);\n    opacity: 0; }\n  50% {\n    -webkit-transform: translateY(0px);\n            transform: translateY(0px); }\n  70% {\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px); }\n  100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1; } }\n\n@keyframes enterDownBounce {\n  0% {\n    -webkit-transform: translateY(-220px);\n            transform: translateY(-220px);\n    opacity: 0; }\n  50% {\n    -webkit-transform: translateY(0px);\n            transform: translateY(0px); }\n  70% {\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px); }\n  100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1; } }\n", ""]);
+exports.push([module.i, ".login-container {\n  margin: 0 auto;\n  width: 400px; }\n\nmd-progress-bar {\n  margin-bottom: -2px; }\n\nmd-input-container {\n  width: 100%; }\n\n.heroBg {\n  background-color: #3F51B5; }\n\n.enter-down-bounce {\n  opacity: 1 !important;\n  visibility: visible !important;\n  -webkit-animation: enterDownBounce 1s linear;\n  animation: enterDownBounce 1s linear; }\n\n@-webkit-keyframes enterDownBounce {\n  0% {\n    -webkit-transform: translateY(-220px);\n    opacity: 0; }\n  50% {\n    -webkit-transform: translateY(0px); }\n  70% {\n    -webkit-transform: translateY(-20px); }\n  100% {\n    -webkit-transform: translateY(0);\n    opacity: 1; } }\n\n@-webkit-keyframes enterDownBounce {\n  0% {\n    -webkit-transform: translateY(-220px);\n            transform: translateY(-220px);\n    opacity: 0; }\n  50% {\n    -webkit-transform: translateY(0px);\n            transform: translateY(0px); }\n  70% {\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px); }\n  100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1; } }\n\n@keyframes enterDownBounce {\n  0% {\n    -webkit-transform: translateY(-220px);\n            transform: translateY(-220px);\n    opacity: 0; }\n  50% {\n    -webkit-transform: translateY(0px);\n            transform: translateY(0px); }\n  70% {\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px); }\n  100% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n    opacity: 1; } }\n", ""]);
 
 // exports
 
@@ -569,7 +569,7 @@ LoginComponent = __decorate([
             ])
         ]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__core_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__core_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["p" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["p" /* MdSnackBar */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__core_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__core_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["Router"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["q" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["q" /* MdSnackBar */]) === "function" && _c || Object])
 ], LoginComponent);
 
 var _a, _b, _c;

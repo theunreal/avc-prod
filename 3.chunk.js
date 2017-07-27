@@ -175,7 +175,7 @@ HomepageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__shared_admin_shared_module__["a" /* AdminSharedModule */],
             __WEBPACK_IMPORTED_MODULE_3__homepage_routing_module__["a" /* HomepageRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_8_primeng_primeng__["ChartModule"],
-            __WEBPACK_IMPORTED_MODULE_7__angular_material__["m" /* MdDialogModule */]
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["n" /* MdDialogModule */]
         ],
         entryComponents: [__WEBPACK_IMPORTED_MODULE_9__homepage_device_finder_device_finder_component__["a" /* DeviceFinderComponent */]],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__homepage_component__["a" /* HomepageComponent */], __WEBPACK_IMPORTED_MODULE_5__summary_summary_component__["a" /* SummaryComponent */], __WEBPACK_IMPORTED_MODULE_9__homepage_device_finder_device_finder_component__["a" /* DeviceFinderComponent */]],
@@ -288,7 +288,7 @@ SummaryService = __decorate([
 /***/ "../../../../../src/app/admin/homepage/summary/summary.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"container-fluid\">\n\t<div class=\"row\">\n\t\t<section class=\"col-xl-9 col-lg-8 col-md-12\">\n\t\t\t<md-card class=\"nospaces extend-toolbar\">\n\t\t\t\t<md-toolbar color=\"accent\">\n\t\t\t\t<span>Summary<span *ngIf=\"device\">: {{device}}</span></span>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<div class=\"row mr-3 ml-3 text-center\">\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>Classification</small>\n\t\t\t\t\t\t\t<h3>100%</h3>\n\t\t\t\t\t\t\t<small>\n\t\t\t\t\t\t\t<md-icon>arrow_drop_up</md-icon> +5% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>First Packet Classification</small>\n\t\t\t\t\t\t\t<h3>93%</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_up</md-icon> +13% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>Bandwidth</small>\n\t\t\t\t\t\t\t<h3>658 Mbps</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_down</md-icon> -8% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>SD-AVC Coverage</small>\n\t\t\t\t\t\t\t<h3>91%</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_up</md-icon> +3% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\n\t\t\t<md-card class=\"mt-3 nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Application Usage</span>\n\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-nav-list>\n\t\t\t\t\t\t<article class=\"row\">\n\t\t\t\t\t\t\t<md-list-item \n\t\t\t\t\t\t\t*ngFor=\"let item of [1,2,3,4,5,6,7,8]\"\n\t\t\t\t\t\t\trouterLink=\"../../apps/{{item}}\"\n\t\t\t\t\t\t\tclass=\"col-xl-3 col-lg-4 col-md-6 col-sm-12\">\n\t\t\t\t\t\t\t\t<img md-list-avatar src=\"assets/images/apps/skype.png\" alt=\"Skype\">\n\t\t\t\t\t\t\t    <h4 md-line>Skype</h4>\n\t\t\t\t\t\t\t    <p md-line>54% <md-icon>trending_up</md-icon></p>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t</article>\n\t\t\t\t\t</md-nav-list>\n\t\t\t\t</md-card-content>\n\t\t\t\t<md-card-actions align=\"right\">\n\t\t\t\t\t<button md-button color=\"primary\" routerLink=\"/admin/apps\">\n\t\t\t\t\t\t<md-icon>view_list</md-icon> View All (13)\n\t\t\t\t\t</button>\n\t\t\t\t</md-card-actions>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t\t<!-- All Devices info card -->\n\t\t<section class=\"col-lg-3 col-md-4\" *ngIf=\"!device\">\n\t\t\t<md-card class=\"nospaces\">\n\t\t\t\t<md-toolbar>Segment Monitoring\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t<button md-icon-button (click)=\"showDevices()\"><md-icon>swap_horiz</md-icon></button>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-nav-list>\n\t\t\t\t\t\t<md-list-item routerLink=\"/admin/devices\">\n\t\t\t\t\t\t\t<p md-line>Segments</p>\n\t\t\t\t\t\t\t<h3 md-line>4</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item routerLink=\"/admin/devices\">\n\t\t\t\t\t\t\t<p md-line>Devices</p>\n\t\t\t\t\t\t\t<h3 md-line>84</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t</md-nav-list>\n\t\t\t\t\t<md-list>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Update</p>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Exporter</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Traffic</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t</md-list>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t\t<!-- Specific device info card -->\n\t\t<section class=\"col-xl-3 col-lg-4 col-md-12\" *ngIf=\"device\">\n\t\t\t<md-card class=\"nospaces\" [class.connected]=\"device\">\n\t\t\t\t<md-toolbar>{{device}}\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t<button md-icon-button (click)=\"showDevices()\"><md-icon>swap_horiz</md-icon></button>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-list>\n\t\t\t\t\t\t<md-list-item *ngIf=\"routeData.segment\" (click)=\"showDevices()\"\n\t\t\t\t\t\tstyle=\"cursor: pointer\">\n\t\t\t\t\t\t\t<p md-line>Devices</p>\n\t\t\t\t\t\t\t<h3 md-line>17</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item *ngIf=\"routeData.device\" style=\"cursor:pointer\"\n\t\t\t\t\t\t\trouterLink=\"/admin/summary/segment/ciscoIL\">\n\t\t\t\t\t\t\t<p md-line>Segment</p>\n\t\t\t\t\t\t\t<h3 md-line>ciscoIL</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t\t<p md-line>IP</p>\n\t\t\t\t\t\t\t\t<h3 md-line>10.56.196.122</h3>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t\t<p md-line>Protocol Pack</p>\n\t\t\t\t\t\t\t\t<h3 md-line>pp-adv-asr1k-16.6.2-30-32.0.1.pack</h3>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Update</p>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Exporter</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Traffic</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</md-list>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t</div>\n\t\n\t<div class=\"row mt-3 mb-3\">\n\t<section class=\"col-md-8 col-lg-9\">\n\t\t<md-card class=\"nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Classification Performance</span>\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t\t<md-select placeholder=\"Period\" [(ngModel)]=\"analyticsTime\" style=\"min-width: 200px\"\n\t\t\t\t\t (ngModelChange)=\"updateAnalytics($event)\" floatPlaceholder=\"never\">\n\t\t\t   \t\t\t<md-option value=\"1\">This hour vs last hour</md-option>\n\t\t\t   \t\t\t<md-option value=\"2\">Last 6 hours vs previous 6 hours</md-option>\n\t\t   \t\t\t</md-select>\n\t\t\t</md-toolbar>\n\t\t  <md-card-content class=\"mt-3\" *ngIf=\"inited\">\n\t\t    <section class=\"row\">\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tClassification\n\t\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"\n\t\t\t    \t\twidth=\"50\" height=\"80\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tFirst Packet Classification\n\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"\n\t\t\t    \t\theight=\"70\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tSD-AVC Coverage Ratio\n\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"\n\t\t\t    \t\theight=\"70\"></p-chart>\n\t\t    \t</article>\n\t\t    </section>\n\t\t    <hr/>\n\t\t    <section class=\"row\">\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"vsData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"vsData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"vsData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    </section>\n\t\t\t</md-card-content>\n\t\t</md-card>\n\t</section>\n\t<section class=\"col-md-4 col-lg-3\">\n\t\t<md-card class=\"nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Business Relevance</span>\n\t\t\t</md-toolbar>\n\t\t\t<md-card-content class=\"mt-3\">\n\t\t\t\t<p-chart type=\"doughnut\" \n\t\t\t\t[data]=\"dataDognut\"\n\t\t\t\t *ngIf=\"inited\"\n\t\t\t\t (onDataSelect)=\"dognutClick($event)\"\n\t\t\t\t ></p-chart>\n\t\t\t</md-card-content>\n\t\t</md-card>\n\t</section>\n\t</div>\n</section>"
+module.exports = "<section class=\"container-fluid\">\n\t<div class=\"row\">\n\t\t<section class=\"col-xl-9 col-lg-8 col-md-12\">\n\t\t\t<md-card class=\"nospaces extend-toolbar\">\n\t\t\t\t<md-toolbar color=\"accent\">\n\t\t\t\t<span>Summary<span *ngIf=\"device\">: {{device}}</span></span>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<div class=\"row mr-3 ml-3 text-center\">\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small class=\"bigger\">Classification</small>\n\t\t\t\t\t\t\t<h3>100%</h3>\n\t\t\t\t\t\t\t<small>\n\t\t\t\t\t\t\t<md-icon>arrow_drop_up</md-icon> +5% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small class=\"bigger\">First Packet Classification</small>\n\t\t\t\t\t\t\t<h3>93%</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_up</md-icon> +13% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small class=\"bigger\">Bandwidth</small>\n\t\t\t\t\t\t\t<h3>658 Mbps</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_down</md-icon> -8% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small class=\"bigger\">SD-AVC Coverage</small>\n\t\t\t\t\t\t\t<h3>91%</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_up</md-icon> +3% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\n\t\t\t<md-card class=\"mt-3 nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Application Usage</span>\n\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-nav-list>\n\t\t\t\t\t\t<article class=\"row\">\n\t\t\t\t\t\t\t<application\n\t\t\t\t\t\t\t*ngFor=\"let app of topApps\"\n\t\t\t\t\t\t\t[app]=\"app\"\n\t\t\t\t\t\t\trouterLink=\"/admin/apps/{{app.name}}\"\n\t\t\t\t\t\t\tclass=\"col\">\n\t\t\t\t\t\t\t</application>\n\t\t\t\t\t\t</article>\n\t\t\t\t\t</md-nav-list>\n\t\t\t\t</md-card-content>\n\t\t\t\t<md-card-actions align=\"right\">\n\t\t\t\t\t<button md-button color=\"primary\" routerLink=\"/admin/apps\">\n\t\t\t\t\t\t<md-icon>view_list</md-icon> View All (13)\n\t\t\t\t\t</button>\n\t\t\t\t</md-card-actions>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t\t<!-- All Devices info card -->\n\t\t<section class=\"col-lg-3 col-md-4\" *ngIf=\"!device\">\n\t\t\t<md-card class=\"nospaces\">\n\t\t\t\t<md-toolbar>Segment Monitoring\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t<button md-icon-button (click)=\"showDevices()\"><md-icon>swap_horiz</md-icon></button>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-nav-list>\n\t\t\t\t\t\t<md-list-item routerLink=\"/admin/devices\">\n\t\t\t\t\t\t\t<p md-line>Segments</p>\n\t\t\t\t\t\t\t<h3 md-line>4</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item routerLink=\"/admin/devices\">\n\t\t\t\t\t\t\t<p md-line>Devices</p>\n\t\t\t\t\t\t\t<h3 md-line>84</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t</md-nav-list>\n\t\t\t\t\t<md-list>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Update</p>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Exporter</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Traffic</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t</md-list>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t\t<!-- Specific device info card -->\n\t\t<section class=\"col-xl-3 col-lg-4 col-md-12\" *ngIf=\"device\">\n\t\t\t<md-card class=\"nospaces\" [class.connected]=\"device\">\n\t\t\t\t<md-toolbar>{{device}}\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t<button md-icon-button (click)=\"showDevices()\"><md-icon>swap_horiz</md-icon></button>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-list>\n\t\t\t\t\t\t<md-list-item *ngIf=\"routeData.segment\" (click)=\"showDevices()\"\n\t\t\t\t\t\tstyle=\"cursor: pointer\">\n\t\t\t\t\t\t\t<p md-line>Devices</p>\n\t\t\t\t\t\t\t<h3 md-line>17</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<section *ngIf=\"routeData.device\">\n\t\t\t\t\t\t\t<md-list-item style=\"cursor:pointer\"\n\t\t\t\t\t\t\t\trouterLink=\"/admin/summary/segment/ciscoIL\">\n\t\t\t\t\t\t\t\t<p md-line>Segment</p>\n\t\t\t\t\t\t\t\t<h3 md-line>ciscoIL</h3>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t\t<p md-line>IP</p>\n\t\t\t\t\t\t\t\t<h3 md-line>10.56.196.122</h3>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t</section>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<p md-line>Protocol Pack</p>\n\t\t\t\t\t\t\t<h3 md-line>pp-adv-asr1k-16.6.2-30-32.0.1.pack</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Update</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Exporter</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Traffic</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</md-list>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\t</section>\n\t</div>\n\t\n\t<div class=\"row mt-3 mb-3\">\n\t<section class=\"col-md-8 col-lg-9\">\n\t\t<md-card class=\"nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Classification Performance</span>\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t\t<md-select placeholder=\"Period\" [(ngModel)]=\"analyticsTime\" style=\"min-width: 200px\"\n\t\t\t\t\t (ngModelChange)=\"updateAnalytics($event)\" floatPlaceholder=\"never\">\n\t\t\t   \t\t\t<md-option value=\"1\">This hour vs last hour</md-option>\n\t\t\t   \t\t\t<md-option value=\"2\">Last 6 hours vs previous 6 hours</md-option>\n\t\t   \t\t\t</md-select>\n\t\t\t</md-toolbar>\n\t\t  <md-card-content class=\"mt-3\" *ngIf=\"inited\">\n\t\t    <section class=\"row\">\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tClassification\n\t\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tFirst Packet Classification\n\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tSD-AVC Coverage Ratio\n\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"></p-chart>\n\t\t    \t</article>\n\t\t    </section>\n\t\t    <hr/>\n\t\t    <section class=\"row\">\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"bandwidthVsCPSData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"clsVsImprvData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"frstClsVsImprv\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    </section>\n\t\t\t</md-card-content>\n\t\t</md-card>\n\t</section>\n\t\n\t<section class=\"col-md-4 col-lg-3\">\n\t\t<md-card class=\"nospaces\">\n\t\t\t<md-toolbar color=\"accent\">\n\t\t\t  <span>Device List</span>\n\t\t\t</md-toolbar>\n\t\t\t\n\t\t\t    <md-tab-group>\n\t\t\t\t  <md-tab label=\"Relevance\">\n\t\t\t\t  \t<section class=\"container-fluid\">\n\t\t\t\t\t  <p-chart type=\"doughnut\" \n\t\t\t\t\t\t\t\t[data]=\"dataDognut\"\n\t\t\t\t\t\t\t\t *ngIf=\"inited\"\n\t\t\t\t\t\t\t\t (onDataSelect)=\"dognutClick($event)\"></p-chart>\n\t\t\t\t\t  </section>\n\t\t\t\t  </md-tab>\n\t\t\t\t  <md-tab label=\"Type\">\n\t\t\t\t  \t<section class=\"container-fluid\">\n\t\t\t\t\t  <p-chart type=\"doughnut\" \n\t\t\t\t\t\t\t\t[data]=\"dataDognutType\"></p-chart>\n\t\t\t\t\t  </section>\n\t\t\t\t  </md-tab>\n\t\t\t\t</md-tab-group>\n\t\t\t</md-card>\n\t\t</section>\n\t</div>\n</section>"
 
 /***/ }),
 
@@ -300,7 +300,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".extend-toolbar {\n  background-color: #448AFF;\n  color: white; }\n\nh3 {\n  font-weight: bold;\n  line-height: 16px;\n  padding-top: 10px; }\n\nsmall {\n  font-size: 11px; }\n\nmd-list-item p {\n  font-size: 12px !important;\n  color: gray; }\n\nmd-list-item h3 {\n  font-size: 18px !important; }\n\nmd-card-content {\n  padding: 0 30px 0 30px; }\n\nmd-card-actions {\n  padding: 0 30px 0 30px; }\n\nmd-toolbar {\n  background-color: #F0F0F0; }\n\n.connected {\n  border-bottom: 3px solid #64DA41 !important; }\n", ""]);
+exports.push([module.i, ".extend-toolbar {\n  background-color: #448AFF;\n  color: white; }\n\nh3 {\n  font-weight: bold;\n  font-size: 22px;\n  line-height: 16px;\n  padding-top: 10px; }\n\nsmall {\n  font-size: 11px; }\n\n.bigger {\n  font-size: 12px; }\n\nmd-list-item h3 {\n  line-height: 100%; }\n\nmd-list-item p {\n  font-size: 12px !important;\n  color: gray; }\n\nmd-list-item h3 {\n  font-size: 18px !important; }\n\nmd-card-content {\n  padding: 0 30px 0 30px; }\n\nmd-card-actions {\n  padding: 0 30px 0 30px; }\n\nmd-toolbar {\n  background-color: #F0F0F0; }\n\n.connected {\n  border-bottom: 3px solid #64DA41 !important; }\n", ""]);
 
 // exports
 
@@ -339,6 +339,8 @@ var SummaryComponent = (function () {
         this.router = router;
         this.route = route;
         this.dialog = dialog;
+        this.inited = false;
+        this.topApps = [];
         this.data = {
             labels: ['', '', '', '', '', '', ''],
             datasets: [
@@ -379,18 +381,52 @@ var SummaryComponent = (function () {
                     }]
             }
         };
-        this.vsData = {
+        this.bandwidthVsCPSData = {
             labels: ['', '', '', '', '', '', ''],
             datasets: [
                 {
                     label: 'Bandwidth',
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: [65, 59, 80, 81, 56, 55, 70],
                     borderColor: '#448AFF',
                     fill: false,
                 },
                 {
                     label: 'CPS',
-                    data: [28, 48, 40, 19, 86, 27, 90],
+                    data: [28, 48, 40, 19, 86, 27, 60],
+                    borderColor: '#C7A62D',
+                    fill: false
+                }
+            ],
+        };
+        this.clsVsImprvData = {
+            labels: ['', '', '', '', '', '', ''],
+            datasets: [
+                {
+                    label: 'Classification',
+                    data: [35, 49, 50, 61, 56, 45, 70],
+                    borderColor: '#448AFF',
+                    fill: false,
+                },
+                {
+                    label: 'Classification Improvement',
+                    data: [28, 38, 40, 59, 46, 37, 62],
+                    borderColor: '#C7A62D',
+                    fill: false
+                }
+            ],
+        };
+        this.frstClsVsImprv = {
+            labels: ['', '', '', '', '', '', ''],
+            datasets: [
+                {
+                    label: 'First Packet Classification',
+                    data: [65, 59, 80, 81, 56, 55, 70],
+                    borderColor: '#448AFF',
+                    fill: false,
+                },
+                {
+                    label: '1st Packet Classification Improvement',
+                    data: [28, 48, 70, 72, 46, 51, 60],
                     borderColor: '#C7A62D',
                     fill: false
                 }
@@ -426,6 +462,27 @@ var SummaryComponent = (function () {
                 }
             ]
         };
+        this.dataDognutType = {
+            labels: ['Social Network', 'Search Engines', 'Communication'],
+            animation: {
+                animateScale: true
+            },
+            datasets: [
+                {
+                    data: [200, 100, 125],
+                    backgroundColor: [
+                        "#64DA41",
+                        "#DA4141",
+                        "#43A3DA"
+                    ],
+                    hoverBackgroundColor: [
+                        "#4FCB29",
+                        "#CB2F2F",
+                        "#2D8FC7"
+                    ]
+                }
+            ]
+        };
         route.params.subscribe(function (params) {
             if (params.device_id) {
                 _this.getDeviceAnalytics(params.device_id);
@@ -440,9 +497,34 @@ var SummaryComponent = (function () {
         route.data.subscribe(function (routeData) {
             _this.routeData = routeData;
         });
+        this.initApps();
     }
+    SummaryComponent.prototype.initApps = function () {
+        var appList = [{
+                name: 'Skype',
+                image: 'skype.png',
+                bandwidth: Math.round(((Math.random() * 100) + 1) * 100) / 100
+            }, {
+                name: 'uTorrent',
+                image: 'utorrent.png',
+                bandwidth: Math.round(((Math.random() * 100) + 1) * 100) / 100
+            },
+            {
+                name: 'WhatsApp',
+                image: 'whatsapp.png',
+                bandwidth: Math.round(((Math.random() * 100) + 1) * 100) / 100
+            }
+        ];
+        for (var i = 0; i <= 7; i++) {
+            var num = Math.floor((Math.random() * 3));
+            this.topApps.push(appList[num]);
+        }
+    };
     SummaryComponent.prototype.ngAfterViewInit = function () {
-        this.inited = true;
+        var _this = this;
+        setTimeout(function () {
+            _this.inited = true;
+        });
     };
     SummaryComponent.prototype.getDeviceAnalytics = function (id) {
         this.device = id;
@@ -465,13 +547,13 @@ var SummaryComponent = (function () {
             labels: ['', '', '', '', '', '', ''],
             datasets: [
                 {
-                    label: '',
+                    label: 'Today',
                     data: [85, 69, 90, 41, 66, 85, 90],
                     borderColor: '#448AFF',
                     fill: false
                 },
                 {
-                    label: '',
+                    label: 'Yesterday',
                     data: [48, 68, 70, 49, 66, 77, 85],
                     borderColor: '#ADD2E4',
                     fill: false
@@ -490,7 +572,7 @@ SummaryComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/admin/homepage/summary/summary.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/homepage/summary/summary.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["n" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["n" /* MdDialog */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["o" /* MdDialog */]) === "function" && _c || Object])
 ], SummaryComponent);
 
 var _a, _b, _c;

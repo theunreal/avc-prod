@@ -222,7 +222,7 @@ var _a;
 /***/ "../../../../../src/app/admin/applications/application-list/application-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n\t<md-card class=\"nospaces\">\n\t\t<md-toolbar color=\"accent\">\n\t\t  <span>Application List</span>\n\t\t</md-toolbar>\n\t\t\n\t\t    <md-tab-group class=\"extend-toolbar\" #tabs>\n\t\t\t  <md-tab label=\"Relevant\">\n\t\t\t  \t<md-nav-list class=\"container-fluid\">\n\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t  \t\t<md-list-item class=\"col-md-3\"\n\t\t\t\t  \t\t *ngFor=\"let app of [1,2,3,4,5,6,7,8,9,10,11,12,13]\"\n\t\t\t\t  \t\t routerLink=\"{{app}}\">\n\t\t\t\t  \t\t\t<img src=\"assets/images/apps/skype.png\" md-list-avatar/> \n\t\t\t\t  \t\t\t<h4 md-line>Skype</h4>\n\t\t\t\t  \t\t\t<p md-line>58% Bandwidth</p>\n\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t  \t</section>\n\t\t\t  \t</md-nav-list>\n\t\t\t  </md-tab>\n\t\t\t  <md-tab label=\"Irelevant\">\n\t\t\t\t<md-nav-list class=\"container-fluid\">\n\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t  \t\t<md-list-item class=\"col-md-3\" *ngFor=\"let app of [1,2,3,4,5,6,7,8,9,10,11,12,13]\"\n\t\t\t\t  \t\trouterLink=\"{{app}}\">\n\t\t\t\t  \t\t\t<img src=\"assets/images/apps/utorrent.png\" md-list-avatar/> \n\t\t\t\t  \t\t\t<h4 md-line>uTorrent</h4>\n\t\t\t\t  \t\t\t<p md-line>73% Bandwidth</p>\n\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t  \t</section>\n\t\t\t  \t</md-nav-list>\n\t\t\t  </md-tab>\n\t\t\t  <md-tab label=\"Default\">\n\t\t\t\t<md-nav-list class=\"container-fluid\">\n\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t  \t\t<md-list-item class=\"col-md-3\" *ngFor=\"let app of [1,2,3,4,5,6,7,8,9,10,11,12,13]\"\n\t\t\t\t  \t\trouterLink=\"{{app}}\">\n\t\t\t\t  \t\t\t<img src=\"assets/images/apps/utorrent.png\" md-list-avatar/> \n\t\t\t\t  \t\t\t<h4 md-line>uTorrent</h4>\n\t\t\t\t  \t\t\t<p md-line>39% Bandwidth</p>\n\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t  \t</section>\n\t\t\t  \t</md-nav-list>\n\t\t\t  </md-tab>\n\t\t\t</md-tab-group>\n\t\t</md-card>\n\t</div>"
+module.exports = "<div class=\"container-fluid\">\n\t<div class=\"row\">\n\t\t<section class=\"col-md-8\">\n\t\t\t<md-card class=\"nospaces\">\n\t\t\t\t<md-toolbar color=\"accent\">\n\t\t\t\t  <span>Application List</span>\n\t\t\t\t</md-toolbar>\n\t\t\t\t\n\t\t\t\t    <md-tab-group class=\"extend-toolbar\" #tabs>\n\t\t\t\t\t  <md-tab label=\"Relevant\">\n\t\t\t\t\t  \t<md-nav-list class=\"container-fluid\">\n\t\t\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t\t\t  \t\t<application *ngFor=\"let app of apps\" class=\"col\"\n\t\t\t\t\t\t  \t\trouterLink=\"{{app.name}}\"\n\t\t\t\t\t\t  \t\t[app]=\"app\"></application>\n\t\t\t\t\t\t  \t</section>\n\t\t\t\t\t  \t</md-nav-list>\n\t\t\t\t\t  </md-tab>\n\t\t\t\t\t  <md-tab label=\"Irelevant\">\n\t\t\t\t\t\t<md-nav-list class=\"container-fluid\">\n\t\t\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t\t\t  \t\t<md-list-item class=\"col\"\n\t\t\t\t\t\t  \t\t *ngFor=\"let app of apps\"\n\t\t\t\t\t\t  \t\t routerLink=\"{{app?.name}}\">\n\t\t\t\t\t\t  \t\t\t<img src=\"assets/images/apps/{{app.image}}\" md-list-avatar/> \n\t\t\t\t\t\t  \t\t\t<h4 md-line>{{app.name}}</h4>\n\t\t\t\t\t\t  \t\t\t<p md-line>{{app.bandwidth}} GB</p>\n\t\t\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t\t\t  \t</section>\n\t\t\t\t\t  \t</md-nav-list>\n\t\t\t\t\t  </md-tab>\n\t\t\t\t\t  <md-tab label=\"Default\">\n\t\t\t\t\t\t<md-nav-list class=\"container-fluid\">\n\t\t\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t\t\t  \t\t<md-list-item class=\"col\"\n\t\t\t\t\t\t  \t\t *ngFor=\"let app of apps\"\n\t\t\t\t\t\t  \t\t routerLink=\"{{app?.name}}\">\n\t\t\t\t\t\t  \t\t\t<img src=\"assets/images/apps/{{app.image}}\" md-list-avatar/> \n\t\t\t\t\t\t  \t\t\t<h4 md-line>{{app.name}}</h4>\n\t\t\t\t\t\t  \t\t\t<p md-line>{{app.bandwidth}} GB</p>\n\t\t\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t\t\t  \t</section>\n\t\t\t\t\t  \t</md-nav-list>\n\t\t\t\t\t  </md-tab>\n\t\t\t\t\t</md-tab-group>\n\t\t\t\t</md-card>\n\t\t\t</section>\n\t\t\n\t\t\t<section class=\"col-md-4\">\n\t\t\t\t<md-card class=\"nospaces\">\n\t\t\t\t\t<md-toolbar color=\"accent\">\n\t\t\t\t\t  <span>Top Listings</span>\n\t\t\t\t\t</md-toolbar>\n\t\t\t\t\n\t\t\t\t    <md-tab-group class=\"extend-toolbar\">\n\t\t\t\t\t  <md-tab label=\"Most Rules\">\n\t\t\t\t\t  \t<md-nav-list class=\"container-fluid\">\n\t\t\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t\t\t  \t\t<md-list-item class=\"col\"\n\t\t\t\t\t\t  \t\t *ngFor=\"let app of topApps\"\n\t\t\t\t\t\t  \t\t routerLink=\"{{app.name}}\">\n\t\t\t\t\t\t  \t\t\t<img src=\"assets/images/apps/{{app.image}}\" md-list-avatar/> \n\t\t\t\t\t\t  \t\t\t<h4 md-line>{{app.name}}</h4>\n\t\t\t\t\t\t  \t\t\t<p md-line>8,490 Rules</p>\n\t\t\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t\t\t  \t</section>\n\t\t\t\t\t  \t</md-nav-list>\n\t\t\t\t\t  </md-tab>\n\t\t\t\t\t  <md-tab label=\"Most Hits\">\n\t\t\t\t\t\t<md-nav-list class=\"container-fluid\">\n\t\t\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t\t\t  \t\t<md-list-item class=\"col\" *ngFor=\"let app of topApps\"\n\t\t\t\t\t\t  \t\trouterLink=\"{{app.name}}\">\n\t\t\t\t\t\t  \t\t\t<img src=\"assets/images/apps/{{app.image}}\" md-list-avatar/> \n\t\t\t\t\t\t  \t\t\t<h4 md-line>{{app.name}}</h4>\n\t\t\t\t\t\t  \t\t\t<p md-line>594 Hits</p>\n\t\t\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t\t\t  \t</section>\n\t\t\t\t\t  \t</md-nav-list>\n\t\t\t\t\t  </md-tab>\n\t\t\t\t\t</md-tab-group>\n\t\t\t\t</md-card>\n\t\t\t</section>\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -271,11 +271,36 @@ var ApplicationListComponent = (function () {
         this.http = http;
         this.applicationsService = applicationsService;
         this.route = route;
+        this.apps = [];
+        this.topApps = [];
         this.route.params.subscribe(function (params) {
             // params.device ? this.getAppsbyDevice() : this.getApps();
         });
     }
     ApplicationListComponent.prototype.ngOnInit = function () {
+        var appList = [{
+                name: 'Skype',
+                image: 'skype.png',
+                bandwidth: Math.round(((Math.random() * 100) + 1) * 100) / 100
+            }, {
+                name: 'uTorrent',
+                image: 'utorrent.png',
+                bandwidth: Math.round(((Math.random() * 100) + 1) * 100) / 100
+            },
+            {
+                name: 'WhatsApp',
+                image: 'whatsapp.png',
+                bandwidth: Math.round(((Math.random() * 100) + 1) * 100) / 100
+            }
+        ];
+        for (var i = 0; i <= 45; i++) {
+            var num = Math.floor((Math.random() * 2));
+            this.apps.push(appList[num]);
+        }
+        for (var i = 0; i <= 5; i++) {
+            var num = Math.floor((Math.random() * 2));
+            this.topApps.push(appList[num]);
+        }
     };
     ApplicationListComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
@@ -518,7 +543,7 @@ var _a;
 /***/ "../../../../../src/app/admin/applications/view-app/view-app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<section class=\"col-md-8\">\r\n\t\t\t<md-card class=\"nospaces\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t<img src=\"assets/images/apps/skype.png\" class=\"rounded-circle\"/>\r\n\t\t\t\t&nbsp; <span>Skype</span>\r\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\r\n\t\t\t\t<small>Busines Irrelevant</small>\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<all-devices></all-devices>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t</section>\r\n\t\t\r\n\t\t<section class=\"col-md-4\">\r\n\t\t\t<md-card class=\"nospaces\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t\tBandwidth Usage\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"></p-chart>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t\t\r\n\t\t\t<md-card class=\"nospaces mt-2\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t\tRules\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<md-list>\r\n\t\t\t\t\t\t<md-list-item *ngFor=\"let rule of [1]\">\r\n\t\t\t\t\t\t\t<md-icon md-list-icon>info</md-icon>\r\n\t\t\t\t\t\t\t<h4 md-line>46.51.254.142</h4>\r\n\t\t\t\t\t\t\t<p md-line>6 hits</p>\r\n\t\t\t\t\t\t\t<p md-line>Layer3, global</p>\r\n\t\t\t\t\t\t</md-list-item>\r\n\t\t\t\t\t</md-list>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t</section>\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<section class=\"col-md-8\">\r\n\t\t\t<md-card class=\"nospaces\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t<img src=\"assets/images/apps/{{appName.toLowerCase()}}.png\" class=\"rounded-circle\" height=\"44\"/>\r\n\t\t\t\t&nbsp; <span>{{appName}}</span>\r\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\r\n\t\t\t\t<small>Business Irrelevant</small>\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<all-devices></all-devices>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t</section>\r\n\t\t\r\n\t\t<section class=\"col-md-4\">\r\n\t\t\t<md-card class=\"nospaces\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t\tBandwidth Usage\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"></p-chart>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t\t\r\n\t\t\t<md-card class=\"nospaces mt-2\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t\tRules\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<md-list>\r\n\t\t\t\t\t\t<md-list-item *ngFor=\"let rule of [1]\">\r\n\t\t\t\t\t\t\t<md-icon md-list-icon>info</md-icon>\r\n\t\t\t\t\t\t\t<h4 md-line>46.51.254.142</h4>\r\n\t\t\t\t\t\t\t<p md-line>6 hits</p>\r\n\t\t\t\t\t\t\t<p md-line>Layer3, global</p>\r\n\t\t\t\t\t\t</md-list-item>\r\n\t\t\t\t\t</md-list>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t</section>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -530,7 +555,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".extend-toolbar {\n  background-color: #448AFF;\n  color: white; }\n", ""]);
 
 // exports
 
@@ -545,6 +570,7 @@ module.exports = module.exports.toString();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewAppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -556,10 +582,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ViewAppComponent = (function () {
-    function ViewAppComponent() {
+    function ViewAppComponent(route) {
+        this.route = route;
         this.data = {
-            labels: ['Bandwith', '10:00', '12:00', '14:00', '18:00', '20:00', '22:00'],
+            labels: ['Bandwidth', '10:00', '12:00', '14:00', '18:00', '20:00', '22:00'],
             datasets: [
                 {
                     label: 'Today',
@@ -589,6 +617,7 @@ var ViewAppComponent = (function () {
                     }]
             }
         };
+        this.appName = route.snapshot.params.id;
     }
     ViewAppComponent.prototype.ngOnInit = function () {
     };
@@ -600,9 +629,10 @@ ViewAppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/admin/applications/view-app/view-app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/applications/view-app/view-app.component.scss")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]) === "function" && _a || Object])
 ], ViewAppComponent);
 
+var _a;
 //# sourceMappingURL=view-app.component.js.map
 
 /***/ }),

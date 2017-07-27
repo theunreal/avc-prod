@@ -3,7 +3,7 @@ webpackJsonp([4],{
 /***/ "../../../../../src/app/admin/devices/device-list/device-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n\t<md-card class=\"nospaces\">\n\t\t<md-toolbar color=\"accent\">\n\t\t  <span>Device List</span>\n\t\t</md-toolbar>\n\t\t\n\t\t    <md-tab-group class=\"extend-toolbar\">\n\t\t\t  <md-tab *ngFor=\"let segment of segments | async as segments; let i = index\"\n\t\t\t  label=\"{{segment.name}} ({{segment.devices.length}})\">\n\t\t\t  \t<section class=\"container-fluid\">\n\t\t\t  \t<md-input-container>\n\t\t  \t\t<input mdInput placeholder=\"Filter Devices..\"\n\t\t  \t\t [(ngModel)]=\"name\"\n\t\t  \t\t  (ngModelChange)=\"filterName($event,segment,i)\">\n\t\t\t\t</md-input-container>\n\t\t\t\t  <md-nav-list>\n\t\t\t\t  \t<div  class=\"row pt-4 pl-2\">\n\t\t\t\t\t\t  \t<md-list-item *ngFor=\"let device of segment.devices\" \n\t\t\t\t\t\t\t\trouterLink=\"/admin/summary/device/{{device.data.deviceId}}\" class=\"col\">\n\t\t\t\t\t\t\t\t\t<md-icon md-list-icon\n\t\t\t\t\t\t\t\t\t[class.up]=\"device\"\n\t\t\t\t\t\t\t\t\t[class.down]=\"!device\">cloud</md-icon>\n\t\t\t\t\t\t\t\t\t<h4 md-line>{{device.data.deviceId}}</h4>\n\t\t\t\t\t\t\t\t\t<p md-line>{{device.score}}% <md-icon>trending_up</md-icon></p>\n\t\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t</div>\n\t\t\t\t  \t</md-nav-list>\n\t\t\t\t  </section>\n\t\t\t  </md-tab>\n\t\t\t</md-tab-group>\n\t\t</md-card>\n\t</div>"
+module.exports = "<div class=\"container-fluid\">\n\t<md-card class=\"nospaces\">\n\t\t<md-toolbar color=\"accent\">\n\t\t  <span>Device List</span>\n\t\t</md-toolbar>\n\t\t\n\t\t    <md-tab-group class=\"extend-toolbar\">\n\t\t\t  <md-tab *ngFor=\"let segment of segments | async as segments; let i = index\"\n\t\t\t  label=\"{{segment.name}} ({{segment.devices.length}})\">\n\t\t\t  <md-toolbar class=\"smallText\">\n\t\t\t\t\t  \t<md-input-container>\n\t\t\t\t  \t\t<input mdInput placeholder=\"Filter Devices..\"\n\t\t\t\t  \t\t [(ngModel)]=\"name\"\n\t\t\t\t  \t\t  (ngModelChange)=\"filterName($event,segment,i)\">\n\t\t\t\t\t\t</md-input-container>\n\t\t\t\t\t</md-toolbar>\n\t\t\t  \t<section class=\"container-fluid\">\n\t\t\t\t  <md-nav-list>\n\t\t\t\t  \t<div class=\"row pt-4 pl-2\" *ngIf=\"segment.devices.length; else noDevices\">\n\t\t\t\t\t\t  \t<md-list-item *ngFor=\"let device of segment.devices\"\n\t\t\t\t\t\t\t\trouterLink=\"/admin/summary/device/{{device.data.deviceId}}\" class=\"col\">\n\t\t\t\t\t\t\t\t\t<md-icon md-list-icon\n\t\t\t\t\t\t\t\t\t[class.up]=\"device\"\n\t\t\t\t\t\t\t\t\t[class.down]=\"!device\">cloud</md-icon>\n\t\t\t\t\t\t\t\t\t<h4 md-line>{{device.data.deviceId}}</h4>\n\t\t\t\t\t\t\t\t\t<p md-line>{{device.score}}% <md-icon>trending_up</md-icon></p>\n\t\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t<ng-template #noDevices>\n\t\t\t\t\t\t<h5 class=\"mt-3\" style=\"color:gray\">No devices were found.</h5>\n\t\t\t\t\t</ng-template>\n\t\t\t\t\t\n\t\t\t\t  \t</md-nav-list>\n\t\t\t\t  </section>\n\t\t\t  </md-tab>\n\t\t\t</md-tab-group>\n\t\t</md-card>\n\t</div>"
 
 /***/ }),
 
@@ -15,7 +15,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/deep/ .mat-tab-label {\n  color: white; }\n\n/deep/ .mat-tab-header {\n  background-color: #448AFF; }\n\n/deep/ .mat-ink-bar {\n  background-color: white !important;\n  min-width: 120px; }\n\n.hoverShadow:hover {\n  box-shadow: 3px 3px 3px #888888;\n  cursor: pointer;\n  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.45);\n  transition: box-shadow 0.3s; }\n\nmd-card-title {\n  font-weight: bold; }\n\n.connected {\n  border-bottom: 3px solid #6FDF6B; }\n\n.disconnected {\n  border-bottom: 3px solid #D64747; }\n", ""]);
+exports.push([module.i, "/deep/ .mat-tab-label {\n  color: white; }\n\n/deep/ .mat-tab-header {\n  background-color: #448AFF; }\n\n/deep/ .mat-ink-bar {\n  background-color: white !important;\n  min-width: 120px; }\n\n.hoverShadow:hover {\n  box-shadow: 3px 3px 3px #888888;\n  cursor: pointer;\n  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.45);\n  transition: box-shadow 0.3s; }\n\nmd-card-title {\n  font-weight: bold; }\n\n.connected {\n  border-bottom: 3px solid #6FDF6B; }\n\n.disconnected {\n  border-bottom: 3px solid #D64747; }\n\n.smallText {\n  font-size: 14px; }\n", ""]);
 
 // exports
 
@@ -658,6 +658,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__devices_routing_module__ = __webpack_require__("../../../../../src/app/admin/devices/devices.routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__device_service__ = __webpack_require__("../../../../../src/app/admin/devices/device.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_cdk__ = __webpack_require__("../../../cdk/@angular/cdk.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DevicesModule", function() { return DevicesModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -665,6 +666,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -682,7 +684,8 @@ DevicesModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__shared_admin_shared_module__["a" /* AdminSharedModule */],
             __WEBPACK_IMPORTED_MODULE_4__devices_routing_module__["a" /* DevicesRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_cdk__["_0" /* CdkTableModule */]
+            __WEBPACK_IMPORTED_MODULE_6__angular_cdk__["_0" /* CdkTableModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["m" /* MdRadioModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_3__devices_component__["a" /* DevicesComponent */], __WEBPACK_IMPORTED_MODULE_1__device_list_device_list_component__["a" /* DeviceListComponent */]],
         providers: [__WEBPACK_IMPORTED_MODULE_5__device_service__["a" /* DeviceService */]]
