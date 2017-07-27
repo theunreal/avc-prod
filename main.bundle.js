@@ -11,7 +11,7 @@ var map = {
 	],
 	"app/admin/applications/applications.module": [
 		"../../../../../src/app/admin/applications/applications.module.ts",
-		3,
+		2,
 		0
 	],
 	"app/admin/devices/devices.module": [
@@ -21,7 +21,7 @@ var map = {
 	],
 	"app/admin/homepage/homepage.module": [
 		"../../../../../src/app/admin/homepage/homepage.module.ts",
-		2,
+		3,
 		0
 	]
 };

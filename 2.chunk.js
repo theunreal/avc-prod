@@ -1,13 +1,13 @@
 webpackJsonp([2],{
 
-/***/ "../../../../../src/app/admin/homepage/device-finder/device-finder.component.html":
+/***/ "../../../../../src/app/admin/applications/all-devices/all-devices.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<md-nav-list>\r\n\t<section class=\"row\">\r\n\t\t<md-list-item *ngFor=\"let segment of ['cisco','ciscoIL','ciscoUS','ciscoIN',\r\n\t\t'ciscoBL','ciscoUK']\"\r\n\t\t[class.active]=\"activeSegment == segment\" \r\n\t\t(click)=\"activeSegment=segment\"\r\n\t\tclass=\"col\">\r\n\t\t\t<h4 md-line>{{segment}}</h4>\r\n\t\t</md-list-item>\r\n\t</section>\r\n</md-nav-list>\r\n\r\n<section *ngIf=\"activeSegment\">\r\n\t<md-input-container>\r\n\t  \t\t<input mdInput placeholder=\"Find Devices..\"\r\n\t  \t\t [(ngModel)]=\"name\"\r\n\t  \t\t  (ngModelChange)=\"findDevices($event)\">\r\n\t</md-input-container>\r\n\t\r\n\t<md-nav-list *ngIf=\"(devices | async)?.length\">\r\n\t\t<md-list-item *ngFor=\"let device of devices | async\"\r\n\t\t(click)=\"dialogRef.close()\"\r\n\t\t\trouterLink=\"/admin/summary/device/{{device.name}}\">\r\n\t\t\t<h4 md-line>{{device.name}}</h4>\r\n\t\t</md-list-item>\r\n\t</md-nav-list>\r\n\t<div class=\"clearfix\"></div>\r\n\t<div class=\"float-right\">\r\n\t\t<button md-raised-button color=\"primary\"\r\n\t\t(click)=\"dialogRef.close()\"\r\n\t\trouterLink=\"/admin/summary/segment/{{activeSegment}}\">\r\n\t\t\tMonitor \"{{activeSegment}}\"\r\n\t\t</button>\r\n\t</div>\r\n\t\t\r\n</section>"
+module.exports = "<div class=\"container-fluid\">\r\n\t<md-input-container>\r\n  \t\t<input mdInput placeholder=\"Filter Devices..\"\r\n  \t\t [(ngModel)]=\"name\"\r\n  \t\t  (ngModelChange)=\"filterName($event)\">\r\n\t</md-input-container>\r\n\t\r\n\t<md-nav-list>\r\n\t\t<h3 md-subheader>Cisco (5)</h3>\r\n\t\t\t<div class=\"row\">\r\n\t\t\t\t<md-list-item *ngFor=\"let device of devices\"\r\n\t\t\t\t(click)=\"dialogRef.close()\"\r\n\t\t\t\trouterLink=\"/admin/summary/device/{{device.name}}\"\r\n\t\t\t\t class=\"col\">\r\n\t\t\t\t\t<md-icon md-list-icon\r\n\t\t\t\t\t[class.up]=\"device.online\"\r\n\t\t\t\t\t[class.down]=\"!device.online\">cloud</md-icon>\r\n\t\t\t\t\t<h4 md-line>{{device.name}}</h4>\r\n\t\t\t\t\t<p md-line>{{device.classification}}% <md-icon>trending_up</md-icon></p>\r\n\t\t\t\t</md-list-item>\r\n\t\t\t</div>\r\n\t\t\t\r\n\t\t\t<h3 md-subheader>Mongo (5)</h3>\r\n\t\t\t<div class=\"row\">\r\n\t\t\t\t<md-list-item *ngFor=\"let device of devices\"\r\n\t\t\t\trouterLink=\"/admin/summary/device/{{device.name}}\"\r\n\t\t\t\t(click)=\"dialogRef.close()\"\r\n\t\t\t\t class=\"col\">\r\n\t\t\t\t\t<md-icon md-list-icon \r\n\t\t\t\t\t[class.up]=\"device.online\"\r\n\t\t\t\t\t[class.down]=\"!device.online\">cloud</md-icon>\r\n\t\t\t\t\t<h4 md-line>{{device.name}}</h4>\r\n\t\t\t\t\t<p md-line>{{device.classification}}% <md-icon>trending_up</md-icon></p>\r\n\t\t\t\t</md-list-item>\r\n\t\t\t</div>\r\n\t</md-nav-list>\r\n</div>\r\n\r\n<!--\r\n<div class=\"example-container mat-elevation-z8\">\r\n\r\n  <md-table #table [dataSource]=\"dataSource\">\r\n\r\n    <ng-container cdkColumnDef=\"name\">\r\n      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>\r\n      <md-cell *cdkCellDef=\"let row\"> {{row.name}} </md-cell>\r\n    </ng-container>\r\n\r\n    <ng-container cdkColumnDef=\"ip\">\r\n      <md-header-cell *cdkHeaderCellDef> IP </md-header-cell>\r\n      <md-cell *cdkCellDef=\"let row\"> {{row.ip}} </md-cell>\r\n    </ng-container>\r\n\r\n    <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\r\n    <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\r\n  </md-table>\r\n</div>\r\n -->"
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/device-finder/device-finder.component.scss":
+/***/ "../../../../../src/app/admin/applications/all-devices/all-devices.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -15,7 +15,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".active, .active:hover {\n  background-color: #3162B6;\n  color: white;\n  border-radius: 2px; }\n", ""]);
+exports.push([module.i, "/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  min-height: 100%;\n  min-width: 300px; }\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px; }\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: baseline;\n      -ms-flex-align: baseline;\n          align-items: baseline;\n  padding: 8px 24px 0;\n  font-size: 20px;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.mat-input-container {\n  font-size: 14px;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  margin-left: 32px; }\n\n.mat-table {\n  overflow: auto; }\n\n/deep/ .wmat .mat-input-placeholder {\n  color: #ffffff; }\n\nmd-icon {\n  vertical-align: middle; }\n", ""]);
 
 // exports
 
@@ -25,15 +25,42 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/device-finder/device-finder.component.ts":
+/***/ "../../../../../src/app/admin/applications/all-devices/all-devices.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeviceFinderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_cdk__ = __webpack_require__("../../../cdk/@angular/cdk.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge__ = __webpack_require__("../../../../rxjs/add/observable/merge.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_observable_fromEvent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AllDevicesComponent; });
+/* unused harmony export ExampleDatabase */
+/* unused harmony export ExampleDataSource */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,43 +70,163 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 
-var DeviceFinderComponent = (function () {
-    function DeviceFinderComponent(dialogRef) {
+
+
+
+
+
+
+
+
+var AllDevicesComponent = (function () {
+    function AllDevicesComponent(dialogRef) {
         this.dialogRef = dialogRef;
-        this.segments = [];
+        this.devices = [{
+                name: 'Device 01',
+                online: true,
+                ip: '192.168.1.1',
+                classification: 91
+            },
+            {
+                name: 'Device 02',
+                online: true,
+                ip: '192.168.1.1',
+                classification: 86
+            },
+            {
+                name: 'Device 03',
+                online: false,
+                ip: '192.168.1.3',
+                classification: 61
+            },
+            {
+                name: 'Device 04',
+                online: true,
+                ip: '192.168.1.4',
+                classification: 96
+            },
+            {
+                name: 'Device 05',
+                online: true,
+                ip: '192.168.1.5',
+                classification: 85
+            }];
+        this.displayedColumns = ['name', 'ip'];
+        this.exampleDatabase = new ExampleDatabase();
+        this.orgDevices = Object.create(this.devices);
     }
-    DeviceFinderComponent.prototype.ngOnInit = function () {
+    AllDevicesComponent.prototype.filterName = function ($event) {
+        this.devices = this.orgDevices.filter(function (device) {
+            if (device.name.toLowerCase().includes($event.toLowerCase()) === true) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
     };
-    DeviceFinderComponent.prototype.findDevices = function ($event) {
-        this.devices = __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].of([{ name: 'sjc23-noca-appx-gw1' }, { name: 'sjc23-noca-appx-gw2' }, { name: 'sjc23-noca-appx-gw3' }]);
+    AllDevicesComponent.prototype.ngOnInit = function () {
     };
-    return DeviceFinderComponent;
+    return AllDevicesComponent;
 }());
-DeviceFinderComponent = __decorate([
+AllDevicesComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-device-finder',
-        template: __webpack_require__("../../../../../src/app/admin/homepage/device-finder/device-finder.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/admin/homepage/device-finder/device-finder.component.scss")]
+        selector: 'all-devices',
+        template: __webpack_require__("../../../../../src/app/admin/applications/all-devices/all-devices.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/applications/all-devices/all-devices.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["n" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["n" /* MdDialogRef */]) === "function" && _a || Object])
-], DeviceFinderComponent);
+    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Optional"])()),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_10__angular_material__["i" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__angular_material__["i" /* MdDialogRef */]) === "function" && _a || Object])
+], AllDevicesComponent);
+
+/** Constants used to fill up our data base. */
+var NAMES = ['Device 1', 'Device 2', 'Device 3', 'Device 4', 'Device 5'];
+/** An example database that the data source uses to retrieve data for the table. */
+var ExampleDatabase = (function () {
+    function ExampleDatabase() {
+        /** Stream that emits whenever the data has been modified. */
+        this.dataChange = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"]([]);
+    }
+    Object.defineProperty(ExampleDatabase.prototype, "data", {
+        get: function () { return this.dataChange.value; },
+        enumerable: true,
+        configurable: true
+    });
+    /** Adds a new user to the database. */
+    ExampleDatabase.prototype.addUser = function () {
+        var copiedData = this.data.slice();
+        copiedData.push(this.createNewUser());
+        this.dataChange.next(copiedData);
+    };
+    /** Builds and returns a new User. */
+    ExampleDatabase.prototype.createNewUser = function () {
+        var name = NAMES[Math.round(Math.random() * (NAMES.length - 1))];
+        return {
+            name: name,
+            ip: "192.168.1.1"
+        };
+    };
+    return ExampleDatabase;
+}());
+
+/**
+ * Data source to provide what data should be rendered in the table. Note that the data source
+ * can retrieve its data in any way. In this case, the data source is provided a reference
+ * to a common data base, ExampleDatabase. It is not the data source's responsibility to manage
+ * the underlying data. Instead, it only needs to take the data and send the table exactly what
+ * should be rendered.
+ */
+var ExampleDataSource = (function (_super) {
+    __extends(ExampleDataSource, _super);
+    function ExampleDataSource(_exampleDatabase) {
+        var _this = _super.call(this) || this;
+        _this._exampleDatabase = _exampleDatabase;
+        _this._filterChange = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["BehaviorSubject"]('');
+        return _this;
+    }
+    Object.defineProperty(ExampleDataSource.prototype, "filter", {
+        get: function () { return this._filterChange.value; },
+        set: function (filter) { this._filterChange.next(filter); },
+        enumerable: true,
+        configurable: true
+    });
+    /** Connect function called by the table to retrieve one stream containing the data to render. */
+    ExampleDataSource.prototype.connect = function () {
+        var _this = this;
+        var displayDataChanges = [
+            this._exampleDatabase.dataChange,
+            this._filterChange,
+        ];
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].merge.apply(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"], displayDataChanges).map(function () {
+            return _this._exampleDatabase.data.slice().filter(function (item) {
+                var searchStr = (item.name).toLowerCase();
+                return searchStr.indexOf(_this.filter.toLowerCase()) != -1;
+            });
+        });
+    };
+    ExampleDataSource.prototype.disconnect = function () { };
+    return ExampleDataSource;
+}(__WEBPACK_IMPORTED_MODULE_1__angular_cdk__["_1" /* DataSource */]));
 
 var _a;
-//# sourceMappingURL=device-finder.component.js.map
+//# sourceMappingURL=all-devices.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/homepage.component.html":
+/***/ "../../../../../src/app/admin/applications/application-list/application-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>"
+module.exports = "<div class=\"container-fluid\">\n\t<md-card class=\"nospaces\">\n\t\t<md-toolbar color=\"accent\">\n\t\t  <span>Application List</span>\n\t\t</md-toolbar>\n\t\t\n\t\t    <md-tab-group class=\"extend-toolbar\" #tabs>\n\t\t\t  <md-tab label=\"Relevant\">\n\t\t\t  \t<md-nav-list class=\"container-fluid\">\n\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t  \t\t<md-list-item class=\"col-md-3\"\n\t\t\t\t  \t\t *ngFor=\"let app of [1,2,3,4,5,6,7,8,9,10,11,12,13]\"\n\t\t\t\t  \t\t routerLink=\"{{app}}\">\n\t\t\t\t  \t\t\t<img src=\"assets/images/apps/skype.png\" md-list-avatar/> \n\t\t\t\t  \t\t\t<h4 md-line>Skype</h4>\n\t\t\t\t  \t\t\t<p md-line>58% Bandwidth</p>\n\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t  \t</section>\n\t\t\t  \t</md-nav-list>\n\t\t\t  </md-tab>\n\t\t\t  <md-tab label=\"Irelevant\">\n\t\t\t\t<md-nav-list class=\"container-fluid\">\n\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t  \t\t<md-list-item class=\"col-md-3\" *ngFor=\"let app of [1,2,3,4,5,6,7,8,9,10,11,12,13]\"\n\t\t\t\t  \t\trouterLink=\"{{app}}\">\n\t\t\t\t  \t\t\t<img src=\"assets/images/apps/utorrent.png\" md-list-avatar/> \n\t\t\t\t  \t\t\t<h4 md-line>uTorrent</h4>\n\t\t\t\t  \t\t\t<p md-line>73% Bandwidth</p>\n\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t  \t</section>\n\t\t\t  \t</md-nav-list>\n\t\t\t  </md-tab>\n\t\t\t  <md-tab label=\"Default\">\n\t\t\t\t<md-nav-list class=\"container-fluid\">\n\t\t\t  \t\t<section class=\"row\">\n\t\t\t\t  \t\t<md-list-item class=\"col-md-3\" *ngFor=\"let app of [1,2,3,4,5,6,7,8,9,10,11,12,13]\"\n\t\t\t\t  \t\trouterLink=\"{{app}}\">\n\t\t\t\t  \t\t\t<img src=\"assets/images/apps/utorrent.png\" md-list-avatar/> \n\t\t\t\t  \t\t\t<h4 md-line>uTorrent</h4>\n\t\t\t\t  \t\t\t<p md-line>39% Bandwidth</p>\n\t\t\t\t  \t\t</md-list-item>\n\t\t\t\t  \t</section>\n\t\t\t  \t</md-nav-list>\n\t\t\t  </md-tab>\n\t\t\t</md-tab-group>\n\t\t</md-card>\n\t</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/homepage.component.scss":
+/***/ "../../../../../src/app/admin/applications/application-list/application-list.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -97,12 +244,15 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/homepage.component.ts":
+/***/ "../../../../../src/app/admin/applications/application-list/application-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomepageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__applications_service__ = __webpack_require__("../../../../../src/app/admin/applications/applications.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplicationListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -113,41 +263,124 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var HomepageComponent = (function () {
-    function HomepageComponent() {
-    }
-    return HomepageComponent;
-}());
-HomepageComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-homepage',
-        template: __webpack_require__("../../../../../src/app/admin/homepage/homepage.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/admin/homepage/homepage.component.scss")]
-    }),
-    __metadata("design:paramtypes", [])
-], HomepageComponent);
 
-//# sourceMappingURL=homepage.component.js.map
+
+
+var ApplicationListComponent = (function () {
+    function ApplicationListComponent(http, applicationsService, route) {
+        this.http = http;
+        this.applicationsService = applicationsService;
+        this.route = route;
+        this.route.params.subscribe(function (params) {
+            // params.device ? this.getAppsbyDevice() : this.getApps();
+        });
+    }
+    ApplicationListComponent.prototype.ngOnInit = function () {
+    };
+    ApplicationListComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            // Updates tab index
+            _this.tabs.selectedIndex = params.relevant;
+        });
+    };
+    return ApplicationListComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["ViewChild"])('tabs'),
+    __metadata("design:type", Object)
+], ApplicationListComponent.prototype, "tabs", void 0);
+ApplicationListComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
+        selector: 'app-application-list',
+        template: __webpack_require__("../../../../../src/app/admin/applications/application-list/application-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/applications/application-list/application-list.component.scss")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__applications_service__["a" /* ApplicationsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__applications_service__["a" /* ApplicationsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["ActivatedRoute"]) === "function" && _c || Object])
+], ApplicationListComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=application-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/homepage.module.ts":
+/***/ "../../../../../src/app/admin/applications/applications.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "      <!-- make sure to keep the =\"outlet\" part -->\r\n      <router-outlet></router-outlet>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/applications/applications.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/applications/applications.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplicationsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ApplicationsComponent = (function () {
+    function ApplicationsComponent() {
+    }
+    ApplicationsComponent.prototype.ngOnInit = function () {
+    };
+    return ApplicationsComponent;
+}());
+ApplicationsComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-applications',
+        template: __webpack_require__("../../../../../src/app/admin/applications/applications.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/applications/applications.component.scss")]
+    }),
+    __metadata("design:paramtypes", [])
+], ApplicationsComponent);
+
+//# sourceMappingURL=applications.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/applications/applications.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_admin_shared_module__ = __webpack_require__("../../../../../src/app/admin/shared/admin-shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__homepage_component__ = __webpack_require__("../../../../../src/app/admin/homepage/homepage.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__homepage_routing_module__ = __webpack_require__("../../../../../src/app/admin/homepage/homepage.routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__summary_service__ = __webpack_require__("../../../../../src/app/admin/homepage/summary.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__summary_summary_component__ = __webpack_require__("../../../../../src/app/admin/homepage/summary/summary.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__summary_summary_resolver__ = __webpack_require__("../../../../../src/app/admin/homepage/summary/summary.resolver.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__all_devices_all_devices_component__ = __webpack_require__("../../../../../src/app/admin/applications/all-devices/all-devices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applications_component__ = __webpack_require__("../../../../../src/app/admin/applications/applications.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__application_list_application_list_component__ = __webpack_require__("../../../../../src/app/admin/applications/application-list/application-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__applications_routing_module__ = __webpack_require__("../../../../../src/app/admin/applications/applications.routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__applications_service__ = __webpack_require__("../../../../../src/app/admin/applications/applications.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__view_app_view_app_component__ = __webpack_require__("../../../../../src/app/admin/applications/view-app/view-app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_primeng_primeng__ = __webpack_require__("../../../../primeng/primeng.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_primeng_primeng___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_primeng_primeng__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__homepage_device_finder_device_finder_component__ = __webpack_require__("../../../../../src/app/admin/homepage/device-finder/device-finder.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomepageModule", function() { return HomepageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicationsModule", function() { return ApplicationsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -163,40 +396,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var HomepageModule = (function () {
-    function HomepageModule() {
+var ApplicationsModule = (function () {
+    function ApplicationsModule() {
     }
-    return HomepageModule;
+    return ApplicationsModule;
 }());
-HomepageModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+ApplicationsModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__shared_admin_shared_module__["a" /* AdminSharedModule */],
-            __WEBPACK_IMPORTED_MODULE_3__homepage_routing_module__["a" /* HomepageRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_8_primeng_primeng__["ChartModule"],
-            __WEBPACK_IMPORTED_MODULE_7__angular_material__["l" /* MdDialogModule */]
+            __WEBPACK_IMPORTED_MODULE_5__applications_routing_module__["a" /* ApplicationsRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_8_primeng_primeng__["ChartModule"]
         ],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_9__homepage_device_finder_device_finder_component__["a" /* DeviceFinderComponent */]],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__homepage_component__["a" /* HomepageComponent */], __WEBPACK_IMPORTED_MODULE_5__summary_summary_component__["a" /* SummaryComponent */], __WEBPACK_IMPORTED_MODULE_9__homepage_device_finder_device_finder_component__["a" /* DeviceFinderComponent */]],
-        providers: [__WEBPACK_IMPORTED_MODULE_4__summary_service__["a" /* SummaryService */], __WEBPACK_IMPORTED_MODULE_6__summary_summary_resolver__["a" /* SummaryResolver */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__applications_component__["a" /* ApplicationsComponent */], __WEBPACK_IMPORTED_MODULE_4__application_list_application_list_component__["a" /* ApplicationListComponent */], __WEBPACK_IMPORTED_MODULE_7__view_app_view_app_component__["a" /* ViewAppComponent */], __WEBPACK_IMPORTED_MODULE_1__all_devices_all_devices_component__["a" /* AllDevicesComponent */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_6__applications_service__["a" /* ApplicationsService */]]
     })
-], HomepageModule);
+], ApplicationsModule);
 
-//# sourceMappingURL=homepage.module.js.map
+//# sourceMappingURL=applications.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/homepage.routing.module.ts":
+/***/ "../../../../../src/app/admin/applications/applications.routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__application_list_application_list_component__ = __webpack_require__("../../../../../src/app/admin/applications/application-list/application-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__homepage_component__ = __webpack_require__("../../../../../src/app/admin/homepage/homepage.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__summary_summary_component__ = __webpack_require__("../../../../../src/app/admin/homepage/summary/summary.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__summary_summary_resolver__ = __webpack_require__("../../../../../src/app/admin/homepage/summary/summary.resolver.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomepageRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applications_component__ = __webpack_require__("../../../../../src/app/admin/applications/applications.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__view_app_view_app_component__ = __webpack_require__("../../../../../src/app/admin/applications/view-app/view-app.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplicationsRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -210,52 +440,54 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var routes = [
     { path: '',
-        component: __WEBPACK_IMPORTED_MODULE_2__homepage_component__["a" /* HomepageComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_3__applications_component__["a" /* ApplicationsComponent */],
         children: [
-            { path: '', component: __WEBPACK_IMPORTED_MODULE_3__summary_summary_component__["a" /* SummaryComponent */],
+            { path: '', component: __WEBPACK_IMPORTED_MODULE_0__application_list_application_list_component__["a" /* ApplicationListComponent */],
+                /*
                 resolve: {
-                    summary: __WEBPACK_IMPORTED_MODULE_4__summary_summary_resolver__["a" /* SummaryResolver */]
-                },
-            },
+                  devices: DeviceListResolver
+                },*/ data: {
+                    animation: {
+                        value: 'device',
+                    }
+                } },
             {
-                path: 'device/:device_id', component: __WEBPACK_IMPORTED_MODULE_3__summary_summary_component__["a" /* SummaryComponent */], data: {
-                    device: true,
-                }
-            },
-            {
-                path: 'segment/:segment_id', component: __WEBPACK_IMPORTED_MODULE_3__summary_summary_component__["a" /* SummaryComponent */], data: {
-                    segment: true
+                path: ':id', component: __WEBPACK_IMPORTED_MODULE_4__view_app_view_app_component__["a" /* ViewAppComponent */],
+                /*
+                resolve: {
+                  card: ViewAppResolver
+                },*/ data: {
+                    animation: {
+                        value: 'view-app',
+                    }
                 }
             }
         ]
     }
 ];
-var HomepageRoutingModule = (function () {
-    function HomepageRoutingModule() {
+var ApplicationsRoutingModule = (function () {
+    function ApplicationsRoutingModule() {
     }
-    return HomepageRoutingModule;
+    return ApplicationsRoutingModule;
 }());
-HomepageRoutingModule = __decorate([
+ApplicationsRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["RouterModule"].forChild(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["RouterModule"]]
+        imports: [__WEBPACK_IMPORTED_MODULE_2__angular_router__["RouterModule"].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_2__angular_router__["RouterModule"]]
     })
-], HomepageRoutingModule);
+], ApplicationsRoutingModule);
 
-//# sourceMappingURL=homepage.routing.module.js.map
+//# sourceMappingURL=applications.routing.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/summary.service.ts":
+/***/ "../../../../../src/app/admin/applications/applications.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_delay__ = __webpack_require__("../../../../rxjs/add/operator/delay.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_delay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_delay__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplicationsService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -267,32 +499,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-var SummaryService = (function () {
-    function SummaryService() {
+var ApplicationsService = (function () {
+    function ApplicationsService(http) {
+        this.http = http;
     }
-    SummaryService.prototype.getData = function () {
-        return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].of(1).delay(500);
-    };
-    return SummaryService;
+    return ApplicationsService;
 }());
-SummaryService = __decorate([
+ApplicationsService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [])
-], SummaryService);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+], ApplicationsService);
 
-//# sourceMappingURL=summary.service.js.map
+var _a;
+//# sourceMappingURL=applications.service.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/summary/summary.component.html":
+/***/ "../../../../../src/app/admin/applications/view-app/view-app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"container-fluid\">\n\t<div class=\"row\">\n\t\t<section class=\"col-xl-9 col-lg-8 col-md-12\">\n\t\t\t<md-card class=\"nospaces extend-toolbar\">\n\t\t\t\t<md-toolbar color=\"accent\">\n\t\t\t\t<span>Summary<span *ngIf=\"device\">: {{device}}</span></span>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<div class=\"row mr-3 ml-3 text-center\">\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>Classification</small>\n\t\t\t\t\t\t\t<h3>100%</h3>\n\t\t\t\t\t\t\t<small>\n\t\t\t\t\t\t\t<md-icon>arrow_drop_up</md-icon> +5% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>First Packet Classification</small>\n\t\t\t\t\t\t\t<h3>93%</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_up</md-icon> +13% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>Bandwidth</small>\n\t\t\t\t\t\t\t<h3>658 Mbps</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_down</md-icon> -8% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-md-6\">\n\t\t\t\t\t\t\t<small>SD-AVC Coverage</small>\n\t\t\t\t\t\t\t<h3>91%</h3>\n\t\t\t\t\t\t\t<small><md-icon>arrow_drop_up</md-icon> +3% vs the last 2 hours</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\n\t\t\t<md-card class=\"mt-3 nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Application Usage</span>\n\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-nav-list>\n\t\t\t\t\t\t<article class=\"row\">\n\t\t\t\t\t\t\t<md-list-item \n\t\t\t\t\t\t\t*ngFor=\"let item of [1,2,3,4,5,6,7,8]\"\n\t\t\t\t\t\t\trouterLink=\"../../apps/{{item}}\"\n\t\t\t\t\t\t\tclass=\"col-xl-3 col-lg-4 col-md-6 col-sm-12\">\n\t\t\t\t\t\t\t\t<img md-list-avatar src=\"assets/images/apps/skype.png\" alt=\"Skype\">\n\t\t\t\t\t\t\t    <h4 md-line>Skype</h4>\n\t\t\t\t\t\t\t    <p md-line>54% <md-icon>trending_up</md-icon></p>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t</article>\n\t\t\t\t\t</md-nav-list>\n\t\t\t\t</md-card-content>\n\t\t\t\t<md-card-actions align=\"right\">\n\t\t\t\t\t<button md-button color=\"primary\" routerLink=\"/admin/apps\">\n\t\t\t\t\t\t<md-icon>view_list</md-icon> View All (13)\n\t\t\t\t\t</button>\n\t\t\t\t</md-card-actions>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t\t<!-- All Devices info card -->\n\t\t<section class=\"col-lg-3 col-md-4\" *ngIf=\"!device\">\n\t\t\t<md-card class=\"nospaces\">\n\t\t\t\t<md-toolbar>Segment Monitoring\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t<button md-icon-button (click)=\"showDevices()\"><md-icon>swap_horiz</md-icon></button>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-nav-list>\n\t\t\t\t\t\t<md-list-item routerLink=\"/admin/devices\">\n\t\t\t\t\t\t\t<p md-line>Segments</p>\n\t\t\t\t\t\t\t<h3 md-line>4</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item routerLink=\"/admin/devices\">\n\t\t\t\t\t\t\t<p md-line>Devices</p>\n\t\t\t\t\t\t\t<h3 md-line>84</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t</md-nav-list>\n\t\t\t\t\t<md-list>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Update</p>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Exporter</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Traffic</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t</md-list>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t\t<!-- Specific device info card -->\n\t\t<section class=\"col-xl-3 col-lg-4 col-md-12\" *ngIf=\"device\">\n\t\t\t<md-card class=\"nospaces\" [class.connected]=\"device\">\n\t\t\t\t<md-toolbar>{{device}}\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t<button md-icon-button (click)=\"showDevices()\"><md-icon>swap_horiz</md-icon></button>\n\t\t\t\t</md-toolbar>\n\t\t\t\t<md-card-content>\n\t\t\t\t\t<md-list>\n\t\t\t\t\t\t<md-list-item *ngIf=\"routeData.segment\" (click)=\"showDevices()\"\n\t\t\t\t\t\tstyle=\"cursor: pointer\">\n\t\t\t\t\t\t\t<p md-line>Devices</p>\n\t\t\t\t\t\t\t<h3 md-line>17</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item *ngIf=\"routeData.device\" style=\"cursor:pointer\"\n\t\t\t\t\t\t\trouterLink=\"/admin/summary/segment/ciscoIL\">\n\t\t\t\t\t\t\t<p md-line>Segment</p>\n\t\t\t\t\t\t\t<h3 md-line>ciscoIL</h3>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t\t<p md-line>IP</p>\n\t\t\t\t\t\t\t\t<h3 md-line>10.56.196.122</h3>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t\t<p md-line>Protocol Pack</p>\n\t\t\t\t\t\t\t\t<h3 md-line>pp-adv-asr1k-16.6.2-30-32.0.1.pack</h3>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Update</p>\n\t\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Exporter</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t<md-list-item>\n\t\t\t\t\t\t\t<md-icon md-list-icon>check</md-icon>\n\t\t\t\t\t\t\t<p md-line>Traffic</p>\n\t\t\t\t\t\t</md-list-item>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</md-list>\n\t\t\t\t</md-card-content>\n\t\t\t</md-card>\n\t\t</section>\n\t\t\n\t</div>\n\t\n\t<div class=\"row mt-3 mb-3\">\n\t<section class=\"col-md-8 col-lg-9\">\n\t\t<md-card class=\"nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Classification Performance</span>\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\n\t\t\t\t\t<md-select placeholder=\"Period\" [(ngModel)]=\"analyticsTime\" style=\"min-width: 200px\"\n\t\t\t\t\t (ngModelChange)=\"updateAnalytics($event)\" floatPlaceholder=\"never\">\n\t\t\t   \t\t\t<md-option value=\"1\">This hour vs last hour</md-option>\n\t\t\t   \t\t\t<md-option value=\"2\">Last 6 hours vs previous 6 hours</md-option>\n\t\t   \t\t\t</md-select>\n\t\t\t</md-toolbar>\n\t\t  <md-card-content class=\"mt-3\" *ngIf=\"inited\">\n\t\t    <section class=\"row\">\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tClassification\n\t\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"\n\t\t\t    \t\twidth=\"50\" height=\"80\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tFirst Packet Classification\n\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"\n\t\t\t    \t\theight=\"70\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\tSD-AVC Coverage Ratio\n\t\t    \t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"\n\t\t\t    \t\theight=\"70\"></p-chart>\n\t\t    \t</article>\n\t\t    </section>\n\t\t    <hr/>\n\t\t    <section class=\"row\">\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"vsData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"vsData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    \t<article class=\"col-md-4\">\n\t\t    \t\t<p-chart type=\"line\" [data]=\"vsData\" [options]=\"vsOptions\"></p-chart>\n\t\t    \t</article>\n\t\t    </section>\n\t\t\t</md-card-content>\n\t\t</md-card>\n\t</section>\n\t<section class=\"col-md-4 col-lg-3\">\n\t\t<md-card class=\"nospaces\">\n\t\t\t<md-toolbar>\n\t\t\t\t<span>Business Relevance</span>\n\t\t\t</md-toolbar>\n\t\t\t<md-card-content class=\"mt-3\">\n\t\t\t\t<p-chart type=\"doughnut\" \n\t\t\t\t[data]=\"dataDognut\"\n\t\t\t\t *ngIf=\"inited\"\n\t\t\t\t (onDataSelect)=\"dognutClick($event)\"\n\t\t\t\t ></p-chart>\n\t\t\t</md-card-content>\n\t\t</md-card>\n\t</section>\n\t</div>\n</section>"
+module.exports = "<div class=\"container-fluid\">\r\n\t<div class=\"row\">\r\n\t\t<section class=\"col-md-8\">\r\n\t\t\t<md-card class=\"nospaces\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t<img src=\"assets/images/apps/skype.png\" class=\"rounded-circle\"/>\r\n\t\t\t\t&nbsp; <span>Skype</span>\r\n\t\t\t\t<span class=\"fill-remaining-space\"></span>\r\n\t\t\t\t<small>Busines Irrelevant</small>\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<all-devices></all-devices>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t</section>\r\n\t\t\r\n\t\t<section class=\"col-md-4\">\r\n\t\t\t<md-card class=\"nospaces\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t\tBandwidth Usage\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"></p-chart>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t\t\r\n\t\t\t<md-card class=\"nospaces mt-2\">\r\n\t\t\t\t<md-toolbar color=\"accent\">\r\n\t\t\t\t\tRules\r\n\t\t\t\t</md-toolbar>\r\n\t\t\t\t<md-card-content class=\"p-3\">\r\n\t\t\t\t\t<md-list>\r\n\t\t\t\t\t\t<md-list-item *ngFor=\"let rule of [1]\">\r\n\t\t\t\t\t\t\t<md-icon md-list-icon>info</md-icon>\r\n\t\t\t\t\t\t\t<h4 md-line>46.51.254.142</h4>\r\n\t\t\t\t\t\t\t<p md-line>6 hits</p>\r\n\t\t\t\t\t\t\t<p md-line>Layer3, global</p>\r\n\t\t\t\t\t\t</md-list-item>\r\n\t\t\t\t\t</md-list>\r\n\t\t\t\t</md-card-content>\r\n\t\t\t</md-card>\r\n\t\t</section>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/summary/summary.component.scss":
+/***/ "../../../../../src/app/admin/applications/view-app/view-app.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -300,7 +530,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".extend-toolbar {\n  background-color: #448AFF;\n  color: white; }\n\nh3 {\n  font-weight: bold;\n  line-height: 16px;\n  padding-top: 10px; }\n\nsmall {\n  font-size: 11px; }\n\nmd-list-item p {\n  font-size: 12px !important;\n  color: gray; }\n\nmd-list-item h3 {\n  font-size: 18px !important; }\n\nmd-card-content {\n  padding: 0 30px 0 30px; }\n\nmd-card-actions {\n  padding: 0 30px 0 30px; }\n\nmd-toolbar {\n  background-color: #F0F0F0; }\n\n.connected {\n  border-bottom: 3px solid #64DA41 !important; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -310,15 +540,12 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/summary/summary.component.ts":
+/***/ "../../../../../src/app/admin/applications/view-app/view-app.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__device_finder_device_finder_component__ = __webpack_require__("../../../../../src/app/admin/homepage/device-finder/device-finder.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewAppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -329,18 +556,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-;
-
-var SummaryComponent = (function () {
-    function SummaryComponent(router, route, dialog) {
-        var _this = this;
-        this.router = router;
-        this.route = route;
-        this.dialog = dialog;
+var ViewAppComponent = (function () {
+    function ViewAppComponent() {
         this.data = {
-            labels: ['', '', '', '', '', '', ''],
+            labels: ['Bandwith', '10:00', '12:00', '14:00', '18:00', '20:00', '22:00'],
             datasets: [
                 {
                     label: 'Today',
@@ -357,181 +576,209 @@ var SummaryComponent = (function () {
             ]
         };
         this.options = {
-            title: {
-                display: false
-            },
-            legend: {
-                position: 'bottom'
-            },
-            maintainAspectRatio: false,
             scales: {
                 xAxes: [{
-                        display: false,
                         gridLines: {
                             display: false
                         }
                     }],
                 yAxes: [{
-                        display: false,
                         gridLines: {
                             display: false
                         }
                     }]
             }
         };
-        this.vsData = {
-            labels: ['', '', '', '', '', '', ''],
-            datasets: [
-                {
-                    label: 'Bandwidth',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    borderColor: '#448AFF',
-                    fill: false,
-                },
-                {
-                    label: 'CPS',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    borderColor: '#C7A62D',
-                    fill: false
-                }
-            ],
-        };
-        this.vsOptions = {
-            scales: {
-                xAxes: [{ display: false, gridLines: { display: false } }],
-                yAxes: [{ display: false, gridLines: { display: false } }]
-            },
-            legend: {
-                position: 'bottom'
-            }
-        };
-        this.dataDognut = {
-            labels: ['Relevant', 'Irrelevant', 'Default'],
-            animation: {
-                animateScale: true
-            },
-            datasets: [
-                {
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        "#64DA41",
-                        "#DA4141",
-                        "#43A3DA"
-                    ],
-                    hoverBackgroundColor: [
-                        "#4FCB29",
-                        "#CB2F2F",
-                        "#2D8FC7"
-                    ]
-                }
-            ]
-        };
-        route.params.subscribe(function (params) {
-            if (params.device_id) {
-                _this.getDeviceAnalytics(params.device_id);
-            }
-            else if (params.segment_id) {
-                _this.getSegmentAnalytics(params.segment_id);
-            }
-            else {
-                _this.getFullAnalytics();
-            }
-        });
-        route.data.subscribe(function (routeData) {
-            _this.routeData = routeData;
-        });
     }
-    SummaryComponent.prototype.ngAfterViewInit = function () {
-        this.inited = true;
+    ViewAppComponent.prototype.ngOnInit = function () {
     };
-    SummaryComponent.prototype.getDeviceAnalytics = function (id) {
-        this.device = id;
-    };
-    SummaryComponent.prototype.getSegmentAnalytics = function (id) {
-        this.device = id;
-    };
-    SummaryComponent.prototype.getFullAnalytics = function () {
-    };
-    SummaryComponent.prototype.dognutClick = function ($event) {
-        console.log($event);
-        var params = { relevant: $event.element._index, device: this.device };
-        if (!this.device) {
-            delete params.device;
-        }
-        this.router.navigate(['/admin/apps', params]);
-    };
-    SummaryComponent.prototype.updateAnalytics = function ($event) {
-        this.data = {
-            labels: ['', '', '', '', '', '', ''],
-            datasets: [
-                {
-                    label: '',
-                    data: [85, 69, 90, 41, 66, 85, 90],
-                    borderColor: '#448AFF',
-                    fill: false
-                },
-                {
-                    label: '',
-                    data: [48, 68, 70, 49, 66, 77, 85],
-                    borderColor: '#ADD2E4',
-                    fill: false
-                }
-            ]
-        };
-    };
-    SummaryComponent.prototype.showDevices = function () {
-        this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__device_finder_device_finder_component__["a" /* DeviceFinderComponent */]);
-    };
-    return SummaryComponent;
+    return ViewAppComponent;
 }());
-SummaryComponent = __decorate([
+ViewAppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'summary',
-        template: __webpack_require__("../../../../../src/app/admin/homepage/summary/summary.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/admin/homepage/summary/summary.component.scss")]
+        selector: 'app-view-app',
+        template: __webpack_require__("../../../../../src/app/admin/applications/view-app/view-app.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/applications/view-app/view-app.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["Router"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["ActivatedRoute"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["m" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["m" /* MdDialog */]) === "function" && _c || Object])
-], SummaryComponent);
+    __metadata("design:paramtypes", [])
+], ViewAppComponent);
 
-var _a, _b, _c;
-//# sourceMappingURL=summary.component.js.map
+//# sourceMappingURL=view-app.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/homepage/summary/summary.resolver.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "../../../../rxjs/add/observable/fromEvent.js":
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__summary_service__ = __webpack_require__("../../../../../src/app/admin/homepage/summary.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryResolver; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var fromEvent_1 = __webpack_require__("../../../../rxjs/observable/fromEvent.js");
+Observable_1.Observable.fromEvent = fromEvent_1.fromEvent;
+//# sourceMappingURL=fromEvent.js.map
 
-var SummaryResolver = (function () {
-    function SummaryResolver(summaryService) {
-        this.summaryService = summaryService;
+/***/ }),
+
+/***/ "../../../../rxjs/add/observable/merge.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var merge_1 = __webpack_require__("../../../../rxjs/observable/merge.js");
+Observable_1.Observable.merge = merge_1.merge;
+//# sourceMappingURL=merge.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/add/operator/debounceTime.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var debounceTime_1 = __webpack_require__("../../../../rxjs/operator/debounceTime.js");
+Observable_1.Observable.prototype.debounceTime = debounceTime_1.debounceTime;
+//# sourceMappingURL=debounceTime.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/add/operator/distinctUntilChanged.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var distinctUntilChanged_1 = __webpack_require__("../../../../rxjs/operator/distinctUntilChanged.js");
+Observable_1.Observable.prototype.distinctUntilChanged = distinctUntilChanged_1.distinctUntilChanged;
+//# sourceMappingURL=distinctUntilChanged.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/add/operator/startWith.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__("../../../../rxjs/Observable.js");
+var startWith_1 = __webpack_require__("../../../../rxjs/operator/startWith.js");
+Observable_1.Observable.prototype.startWith = startWith_1.startWith;
+//# sourceMappingURL=startWith.js.map
+
+/***/ }),
+
+/***/ "../../../../rxjs/operator/distinctUntilChanged.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var Subscriber_1 = __webpack_require__("../../../../rxjs/Subscriber.js");
+var tryCatch_1 = __webpack_require__("../../../../rxjs/util/tryCatch.js");
+var errorObject_1 = __webpack_require__("../../../../rxjs/util/errorObject.js");
+/* tslint:enable:max-line-length */
+/**
+ * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item.
+ *
+ * If a comparator function is provided, then it will be called for each item to test for whether or not that value should be emitted.
+ *
+ * If a comparator function is not provided, an equality check is used by default.
+ *
+ * @example <caption>A simple example with numbers</caption>
+ * Observable.of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4)
+ *   .distinctUntilChanged()
+ *   .subscribe(x => console.log(x)); // 1, 2, 1, 2, 3, 4
+ *
+ * @example <caption>An example using a compare function</caption>
+ * interface Person {
+ *    age: number,
+ *    name: string
+ * }
+ *
+ * Observable.of<Person>(
+ *     { age: 4, name: 'Foo'},
+ *     { age: 7, name: 'Bar'},
+ *     { age: 5, name: 'Foo'})
+ *     { age: 6, name: 'Foo'})
+ *     .distinctUntilChanged((p: Person, q: Person) => p.name === q.name)
+ *     .subscribe(x => console.log(x));
+ *
+ * // displays:
+ * // { age: 4, name: 'Foo' }
+ * // { age: 7, name: 'Bar' }
+ * // { age: 5, name: 'Foo' }
+ *
+ * @see {@link distinct}
+ * @see {@link distinctUntilKeyChanged}
+ *
+ * @param {function} [compare] Optional comparison function called to test if an item is distinct from the previous item in the source.
+ * @return {Observable} An Observable that emits items from the source Observable with distinct values.
+ * @method distinctUntilChanged
+ * @owner Observable
+ */
+function distinctUntilChanged(compare, keySelector) {
+    return this.lift(new DistinctUntilChangedOperator(compare, keySelector));
+}
+exports.distinctUntilChanged = distinctUntilChanged;
+var DistinctUntilChangedOperator = (function () {
+    function DistinctUntilChangedOperator(compare, keySelector) {
+        this.compare = compare;
+        this.keySelector = keySelector;
     }
-    SummaryResolver.prototype.resolve = function (route, state) {
-        return this.summaryService.getData();
+    DistinctUntilChangedOperator.prototype.call = function (subscriber, source) {
+        return source.subscribe(new DistinctUntilChangedSubscriber(subscriber, this.compare, this.keySelector));
     };
-    return SummaryResolver;
+    return DistinctUntilChangedOperator;
 }());
-SummaryResolver = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__summary_service__["a" /* SummaryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__summary_service__["a" /* SummaryService */]) === "function" && _a || Object])
-], SummaryResolver);
-
-var _a;
-//# sourceMappingURL=summary.resolver.js.map
+/**
+ * We need this JSDoc comment for affecting ESDoc.
+ * @ignore
+ * @extends {Ignored}
+ */
+var DistinctUntilChangedSubscriber = (function (_super) {
+    __extends(DistinctUntilChangedSubscriber, _super);
+    function DistinctUntilChangedSubscriber(destination, compare, keySelector) {
+        _super.call(this, destination);
+        this.keySelector = keySelector;
+        this.hasKey = false;
+        if (typeof compare === 'function') {
+            this.compare = compare;
+        }
+    }
+    DistinctUntilChangedSubscriber.prototype.compare = function (x, y) {
+        return x === y;
+    };
+    DistinctUntilChangedSubscriber.prototype._next = function (value) {
+        var keySelector = this.keySelector;
+        var key = value;
+        if (keySelector) {
+            key = tryCatch_1.tryCatch(this.keySelector)(value);
+            if (key === errorObject_1.errorObject) {
+                return this.destination.error(errorObject_1.errorObject.e);
+            }
+        }
+        var result = false;
+        if (this.hasKey) {
+            result = tryCatch_1.tryCatch(this.compare)(this.key, key);
+            if (result === errorObject_1.errorObject) {
+                return this.destination.error(errorObject_1.errorObject.e);
+            }
+        }
+        else {
+            this.hasKey = true;
+        }
+        if (Boolean(result) === false) {
+            this.key = key;
+            this.destination.next(value);
+        }
+    };
+    return DistinctUntilChangedSubscriber;
+}(Subscriber_1.Subscriber));
+//# sourceMappingURL=distinctUntilChanged.js.map
 
 /***/ })
 

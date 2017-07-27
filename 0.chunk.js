@@ -36,8 +36,8 @@ AdminSharedModule = __decorate([
         declarations: [],
         providers: [],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["RouterModule"],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdToolbarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MdButtonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["i" /* MdTabsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MdCardModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdListModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MdIconModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MdSelectModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdInputModule */]]
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MdToolbarModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MdButtonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdTabsModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MdCardModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["k" /* MdListModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["l" /* MdSelectModule */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MdInputModule */]]
     })
 ], AdminSharedModule);
 
